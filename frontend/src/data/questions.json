@@ -1,26 +1,26 @@
 [
   {
-    "question-number": "1",
-    "question": "What is your name?"
-  },
-  {
-    "question-number": "2",
-    "question": "Question number 2?"
-  },
-  {
-    "question-number": "3",
-    "question": "Question number 3?"
-  },
-  {
-    "question-number": "4",
-    "question": "Question number 4?"
-  },
-  {
-    "question-number": "5",
-    "question": "Question number 5?"
-  },
-  {
-    "question-number": "6",
-    "question": "Question number 6?"
+    "city": "1",
+    "country": "",
+    "valuta": "",
+    "kind-of-valuta": "",
+    "wifi": "What is your name?",
+    "weather": "", 
+    "cost-of-living": "",
+    "best-low-cost-carrier": "",
+    "best-telecom-carrier": "",
+    "religious": "",
+    "costs": [{
+      "apartment": "",
+      "hotel": "",
+      "cappucino": "",
+      "basic-meal": ""
+    }],
+    "co-workingspaces": [{
+      "name": "",
+      "cost": "",
+      "address": "",
+      "distance-airpot": ""
+    }]
   }
 ]
