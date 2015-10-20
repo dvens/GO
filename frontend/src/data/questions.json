@@ -1,26 +1,92 @@
 [
   {
-    "city": "1",
-    "country": "",
+    "city": "Chiang Mai",
+    "country": "Thailand",
     "valuta": "",
     "kind-of-valuta": "",
-    "wifi": "What is your name?",
-    "weather": "", 
-    "cost-of-living": "",
-    "best-low-cost-carrier": "",
-    "best-telecom-carrier": "",
-    "religious": "",
+    "wifi": "15",
+    "weather": "32", 
+    "cost-of-living": "794",
+    "best-low-cost-carrier": "Air Asia",
+    "best-telecom-carrier": "True",
+    "religious": "Free",
     "costs": [{
-      "apartment": "",
-      "hotel": "",
-      "cappucino": "",
-      "basic-meal": ""
+      "apartment": "284",
+      "airbnb": "17",
+      "hotel": "456",
+      "cappucino": "0.57",
+      "basic-meal": "1.70"
     }],
     "co-workingspaces": [{
-      "name": "",
-      "cost": "",
-      "address": "",
-      "distance-airpot": ""
+      "name": "Punspace 2",
+      "cost": "2",
+      "address": "7/2 Rachadamnoen Road, Sol 4",
+      "distance-airpot": "0.2"
+    },{
+      "name": "Bibie Sharing",
+      "cost": "2",
+      "address": "101 Hillside Condominium 2",
+      "distance-airpot": "0"
+    },{
+      "name": "Punspace",
+      "cost": "2",
+      "address": "14 Siri Mangkalajarn Lan 11",
+      "distance-airpot": "2.3"
+    },{
+      "name": "Librarista",
+      "cost": "2",
+      "address": "Nimmana Haeminda Lane 5",
+      "distance-airpot": "2.8"
+    },{
+      "name": "Mana Reading Space",
+      "cost": "2",
+      "address": "Nimmanhemin Sol 8",
+      "distance-airpot": "9.2"
+    },{
+      "name": "Work Nimman",
+      "cost": "3",
+      "address": "Nimmanhemin",
+      "distance-airpot": "9.2"
+    },{
+      "name": "Starwork",
+      "cost": "3",
+      "address": "Tunghotel Road",
+      "distance-airpot": "9.2"
+    }]
+  },
+  {
+    "city": "Las Palmas Gran Canaria",
+    "country": "Spain",
+    "valuta": "",
+    "kind-of-valuta": "",
+    "wifi": "25",
+    "weather": "27", 
+    "cost-of-living": "1717",
+    "best-low-cost-carrier": "Ryanair",
+    "best-telecom-carrier": "Pepephone",
+    "religious": "Free",
+    "costs": [{
+      "apartment": "512",
+      "airbnb": "33",
+      "hotel": "555",
+      "cappucino": "2.84",
+      "basic-meal": "8.53"
+    }],
+    "co-workingspaces": [{
+      "name": "Punspace 2",
+      "cost": "7",
+      "address": "7/2 Rachadamnoen Road, Sol 4",
+      "distance-airpot": "1.6"
+    },{
+      "name": "Bibie Sharing",
+      "cost": "2",
+      "address": "101 Hillside Condominium 2",
+      "distance-airpot": "1.6"
+    },{
+      "name": "Punspace",
+      "cost": "2",
+      "address": "14 Siri Mangkalajarn Lan 11",
+      "distance-airpot": "2.3"
     }]
   }
 ]

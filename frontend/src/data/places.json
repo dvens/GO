@@ -1,26 +1,177 @@
 [
   {
-    "question-number": "1",
-    "question": "What is your name?"
+    "city": "Chiang Mai",
+    "country": "Thailand",
+    "valuta": "",
+    "kind-of-valuta": "",
+    "wifi": "15",
+    "weather": "32", 
+    "cost-of-living": "794",
+    "best-low-cost-carrier": "Air Asia",
+    "best-telecom-carrier": "True",
+    "religious": "Free",
+    "costs": [{
+      "apartment": "284",
+      "airbnb": "17",
+      "hotel": "456",
+      "cappucino": "0.57",
+      "basic-meal": "1.70"
+    }],
+    "co-workingspaces": [{
+      "name": "Punspace 2",
+      "cost": "2",
+      "address": "7/2 Rachadamnoen Road, Sol 4",
+      "distance-airpot": "0.2"
+    },{
+      "name": "Bibie Sharing",
+      "cost": "2",
+      "address": "101 Hillside Condominium 2",
+      "distance-airpot": "0"
+    },{
+      "name": "Punspace",
+      "cost": "2",
+      "address": "14 Siri Mangkalajarn Lan 11",
+      "distance-airpot": "2.3"
+    },{
+      "name": "Librarista",
+      "cost": "2",
+      "address": "Nimmana Haeminda Lane 5",
+      "distance-airpot": "2.8"
+    },{
+      "name": "Mana Reading Space",
+      "cost": "2",
+      "address": "Nimmanhemin Sol 8",
+      "distance-airpot": "9.2"
+    },{
+      "name": "Work Nimman",
+      "cost": "3",
+      "address": "Nimmanhemin",
+      "distance-airpot": "9.2"
+    },{
+      "name": "Starwork",
+      "cost": "3",
+      "address": "Tunghotel Road",
+      "distance-airpot": "9.2"
+    }]
   },
   {
-    "question-number": "2",
-    "question": "Question number 2?"
+    "city": "Las Palmas Gran Canaria",
+    "country": "Spain",
+    "valuta": "",
+    "kind-of-valuta": "",
+    "wifi": "25",
+    "weather": "27", 
+    "cost-of-living": "1717",
+    "best-low-cost-carrier": "Ryanair",
+    "best-telecom-carrier": "Pepephone",
+    "religious": "Free",
+    "costs": [{
+      "apartment": "512",
+      "airbnb": "33",
+      "hotel": "555",
+      "cappucino": "2.84",
+      "basic-meal": "8.53"
+    }],
+    "co-workingspaces": [{
+      "name": "Soppa De Azul",
+      "cost": "7",
+      "address": "Americo vespucio 69",
+      "distance-airpot": "3"
+    },{
+      "name": "Copass",
+      "cost": "11",
+      "address": "Calle Montevideo 2 Las Palmas",
+      "distance-airpot": "1.6"
+    },{
+      "name": "Canary Islands",
+      "cost": "16",
+      "address": "Calle Montevideo 2 Las Palmas",
+      "distance-airpot": "1.6"
+    }]
   },
   {
-    "question-number": "3",
-    "question": "Question number 3?"
+    "city": "Taghazout",
+    "country": "Morocco",
+    "valuta": "",
+    "kind-of-valuta": "",
+    "wifi": "5",
+    "weather": "26", 
+    "cost-of-living": "1340",
+    "best-low-cost-carrier": "Ryanair",
+    "best-telecom-carrier": "INWI",
+    "religious": "Religious",
+    "costs": [{
+      "apartment": "259",
+      "airbnb": "20",
+      "hotel": "1077",
+      "cappucino": "0.86",
+      "basic-meal": "2.69"
+    }],
+    "co-workingspaces": [{
+      "name": "Sundesk and Bb",
+      "cost": "4",
+      "address": "Rue Tasga Oudrar",
+      "distance-airpot": "0"
+    },{
+      "name": "Sundesk",
+      "cost": "Rue Tasga Oudrar 31",
+      "address": "Calle Montevideo 2 Las Palmas",
+      "distance-airpot": "0.1"
+    },{
+      "name": "The Blue House",
+      "cost": "49",
+      "address": "Taghazout",
+      "distance-airpot": "0"
+    }]
   },
   {
-    "question-number": "4",
-    "question": "Question number 4?"
-  },
-  {
-    "question-number": "5",
-    "question": "Question number 5?"
-  },
-  {
-    "question-number": "6",
-    "question": "Question number 6?"
+    "city": "Bangkok",
+    "country": "Thailand",
+    "valuta": "",
+    "kind-of-valuta": "",
+    "wifi": "20",
+    "weather": "32", 
+    "cost-of-living": "1169",
+    "best-low-cost-carrier": "Air Asia",
+    "best-telecom-carrier": "True",
+    "religious": "Free",
+    "costs": [{
+      "apartment": "565",
+      "airbnb": "705",
+      "hotel": "835",
+      "cappucino": "0.75",
+      "basic-meal": "2.26"
+    }],
+    "co-workingspaces": [{
+      "name": "The Hive",
+      "cost": "3",
+      "address": "46/9 Soi Sukhumivit 49",
+      "distance-airpot": "5.7"
+    },{
+      "name": "Hubba",
+      "cost": "8",
+      "address": "19 Ekkamal 4 Alley",
+      "distance-airpot": "6.9"
+    },{
+      "name": "Bbf Travel And Coffee Shop",
+      "cost": "3",
+      "address": "163 Ocean Insurance Building",
+      "distance-airpot": "0.4"
+    },{
+      "name": "Silom Society",
+      "cost": "3",
+      "address": "12/3 Silom Rd.",
+      "distance-airpot": "1.2"
+    },{
+      "name": "Terminal 21",
+      "cost": "3",
+      "address": "2,88 Sol Sukhumivit 19",
+      "distance-airpot": "4"
+    },{
+      "name": "Roselee Coffee",
+      "cost": "3",
+      "address": "588/2 Asoka Dingdaeng Road",
+      "distance-airpot": "4.9"
+    }]
   }
 ]
