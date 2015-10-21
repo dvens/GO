@@ -33,7 +33,7 @@ function Maps() {
           var map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 52.310539, lng: 4.768273},
             styles: styleArray,
-            zoom: 2
+            zoom: 2,
             // Remove Default UI Controls
             disableDefaultUI: true
           });
