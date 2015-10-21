@@ -1,7 +1,4 @@
-var ExampleClass = require('./modules/exampleClass');
-var Maps = require('./modules/maps');
-
-console.log('main is initialized!');
+var MapHandler = require('./modules/mapHandler');
 
 var main = new Main();
 main.init();
@@ -9,13 +6,11 @@ main.init();
 function Main() {
 
 	var _this = this;
-	var _ExampleClass;
-	var _Maps;
+	var _mapHandler;
 
 	_this.init = function() {
 
-	 	_ExampleClass = new ExampleClass();
-	 	_Maps = new Maps();
+	 	_mapHandler = new MapHandler();
 
 	}
 
