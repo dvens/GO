@@ -1,5 +1,5 @@
 var ExampleClass = require('./modules/exampleClass');
-var MapsClass = require('./modules/maps');
+var Maps = require('./modules/maps');
 
 console.log('main is initialized!');
 
@@ -15,7 +15,7 @@ function Main() {
 	_this.init = function() {
 
 	 	_ExampleClass = new ExampleClass();
-	 	_Maps = new MapsClass();
+	 	_Maps = new Maps();
 
 	}
 
