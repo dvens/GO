@@ -2,6 +2,8 @@
   {
     "city": "Chiang Mai",
     "country": "Thailand",
+    "lati": "18.706064",
+    "long": "98.981716",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",
@@ -57,6 +59,8 @@
   {
     "city": "Las Palmas Gran Canaria",
     "country": "Spain",
+    "lati": "28.123546",
+    "long": "-15.436257",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "25",
@@ -92,6 +96,8 @@
   {
     "city": "Taghazout",
     "country": "Morocco",
+    "lati": "30.545337",
+    "long": "-9.708986",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "5",
@@ -127,6 +133,8 @@
   {
     "city": "Bangkok",
     "country": "Thailand",
+    "lati": "30.545337",
+    "long": "-9.708986",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "20",
@@ -177,6 +185,8 @@
   {
     "city": "Tijuana",
     "country": "Mexico",
+    "lati": "32.514947",
+    "long": "-117.038247",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",
@@ -201,6 +211,8 @@
   {
     "city": "Dallas",
     "country": "United States",
+    "lati": "32.514947",
+    "long": "-117.038247",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "35",
