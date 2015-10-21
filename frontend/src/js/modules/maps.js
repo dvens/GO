@@ -1,9 +1,9 @@
+var maps = require('google-maps');
+
 function MapsClass() {
 
     // Load the Google Maps into your Page
     function initMap() {
-
-      console.log(google);
 
       // Specify features and elements to define styles.
       var styleArray = [
@@ -29,16 +29,23 @@ function MapsClass() {
       ];
 
       // Create a map object and specify the DOM element for display.
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        scrollwheel: false,
-        // Apply the map style array to the map.
-        styles: styleArray,
-        zoom: 8
+     
+
+      maps.load(function(google) {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            scrollwheel: false,
+            // Apply the map style array to the map.
+            styles: styleArray,
+            zoom: 8
+          });
       });
+
     }
   
   initMap();
+
+
 }
 
 module.exports = MapsClass;
