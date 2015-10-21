@@ -45,8 +45,10 @@ var config = {
 
     error: function(error) {
         $.util.beep();
-        console.error(error);
-        $.notify.onError({ message: error });
+        $.notify.onError({
+            title: 'Gulp',
+            message: 'Error: <%= error.message %>'
+        })(error);
         this.emit('end');
     }
 
