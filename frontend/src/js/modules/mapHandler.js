@@ -1,5 +1,5 @@
 var maps = require('google-maps');
-var test = require('./../ui/maps/maps');
+//var test = require('./../ui/maps/mapps');
 
 function Maps() {
 

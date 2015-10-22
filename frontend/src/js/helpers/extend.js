@@ -1,15 +1,31 @@
-function Extend(target, source) {
+// Help: https://gist.github.com/pbojinov/8f3765b672efec122f66
+var Extend = function ( defaults, options ) {
     
-    var a = Object.create(target);
+    var extended = {};
+    var prop;
     
-    Object.keys(source).map(function (prop) {
+    for (prop in defaults) {
+    
+        if (Object.prototype.hasOwnProperty.call(defaults, prop)) {
+            
+            extended[prop] = defaults[prop];
+
+        }
+
+    }
+    
+    for (prop in options) {
         
-        prop in a && (a[prop] = source[prop]);
+        if (Object.prototype.hasOwnProperty.call(options, prop)) {
+            
+            extended[prop] = options[prop];
 
-    });
+        }
 
-    return a;
+    }
 
-}
+    return extended;
+
+};
 
 module.exports = Extend;
