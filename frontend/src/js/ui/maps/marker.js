@@ -1,14 +1,22 @@
-function Marker(options) {
+function GeoMarker(options) {
+
+	var _this = this;
+	var _options = options;
+
+	_this.marker = new google.maps.Marker(marker_options);
 
 }
 
-Marker.prototye.addMarker = function(options) {
+Marker.prototype.click = function(fn) {
 
 }
 
+Marker.prototype.mouseover = function(fn) {
+	
+}
 
-Marker.prototye.addMarkers = function(array) {
-
+Marker.prototype.mouseout = function(fn) {
+	
 }
 
 module.exports = Marker;
