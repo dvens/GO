@@ -2,8 +2,8 @@
   {
     "city": "Chiang Mai",
     "country": "Thailand",
-    "lati": "18.706064",
-    "long": "98.981716",
+    "lat": "18.7060641",
+    "lng": "98.9817163",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",
@@ -59,8 +59,8 @@
   {
     "city": "Las Palmas Gran Canaria",
     "country": "Spain",
-    "lati": "28.123546",
-    "long": "-15.436257",
+    "lat": "28.1235459",
+    "lng": "-15.4362574",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "25",
@@ -96,8 +96,8 @@
   {
     "city": "Taghazout",
     "country": "Morocco",
-    "lati": "30.545337",
-    "long": "-9.708986",
+    "lat": "30.5453374",
+    "lng": "-9.7089858",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "5",
@@ -133,8 +133,8 @@
   {
     "city": "Bangkok",
     "country": "Thailand",
-    "lati": "30.545337",
-    "long": "-9.708986",
+    "lat": "13.7563309",
+    "lng": "100.5017651",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "20",
@@ -185,8 +185,8 @@
   {
     "city": "Tijuana",
     "country": "Mexico",
-    "lati": "32.514947",
-    "long": "-117.038247",
+    "lat": "32.5149469",
+    "lng": "-117.0382471",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",
@@ -211,8 +211,8 @@
   {
     "city": "Dallas",
     "country": "United States",
-    "lati": "32.514947",
-    "long": "-117.038247",
+    "lat": "32.7766642",
+    "lng": "-96.7969879",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "35",
@@ -309,6 +309,8 @@
   {
     "city": "Atlanta",
     "country": "United States",
+    "lat": "33.7489954",
+    "lng": "-84.3879824",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "30",
@@ -345,6 +347,8 @@
   {
     "city": "Portland",
     "country": "United States",
+    "lat": "45.5230622",
+    "lng": "-122.6764816",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "40",
@@ -435,6 +439,8 @@
   {
     "city": "Budapest",
     "country": "Hungary",
+    "lat": "47.497912",
+    "lng": "19.040235",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "30",
@@ -495,6 +501,8 @@
   {
     "city": "Oaxaca",
     "country": "Mexico",
+    "lat": "17.0542297",
+    "lng": "-96.7132304",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",
@@ -519,6 +527,8 @@
   {
     "city": "Knoxville",
     "country": "United States",
+    "lat": "35.9606384",
+    "lng": "-83.9207392",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "30",
@@ -543,6 +553,8 @@
   {
     "city": "Osaka",
     "country": "Japan",
+    "lat": "34.6937378",
+    "lng": "135.5021651",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "70",
@@ -579,6 +591,8 @@
   {
     "city": "Porto",
     "country": "Portugal",
+    "lat": "41.1579438",
+    "lng": "-8.6291053",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "40",
@@ -633,6 +647,8 @@
   {
     "city": "Funchal",
     "country": "Portugal",
+    "lat": "32.6669328",
+    "lng": "-16.9240554",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "30",
@@ -657,6 +673,8 @@
   {
     "city": "Lisbon",
     "country": "Portugal",
+    "lat": "38.7222524",
+    "lng": "-9.1393366",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "40",
@@ -748,6 +766,8 @@
   {
     "city": "Memphis",
     "country": "United States",
+    "lat": "35.1495343",
+    "lng": "-90.0489801",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "35",
@@ -773,6 +793,8 @@
   {
     "city": "Kigali",
     "country": "Rwanda",
+    "lat": "-1.9578755",
+    "lng": "30.112735",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",
@@ -798,6 +820,8 @@
   {
     "city": "Aveiro",
     "country": "Portugal",
+    "lat": "40.6413266",
+    "lng": "-8.6536321",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "30",
@@ -823,6 +847,8 @@
   {
     "city": "Taipei",
     "country": "Taiwan",
+    "lat": "25.0329694",
+    "lng": "121.5654177",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "45",
@@ -878,6 +904,8 @@
   {
     "city": "Braga",
     "country": "Portugal",
+    "lat": "41.5454486",
+    "lng": "-8.426507",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "30",
@@ -903,6 +931,8 @@
   {
     "city": "Thessaloniki",
     "country": "Greece",
+    "lat": "40.6400629",
+    "lng": "22.9444191",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "10",
@@ -928,6 +958,8 @@
   {
     "city": "Cordoba",
     "country": "Argentina",
+    "lat": "-31.4200833",
+    "lng": "-64.1887761",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "10",
@@ -965,6 +997,8 @@
   {
     "city": "Jeju Island",
     "country": "South Korea",
+    "lat": "33.413471",
+    "lng": "126.269938",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "60",
@@ -990,6 +1024,8 @@
   {
     "city": "Phuket",
     "country": "Thailand",
+    "lat": "7.9519331",
+    "lng": "98.3380884",
     "valuta": "",
     "kind-of-valuta": "",
     "wifi": "15",

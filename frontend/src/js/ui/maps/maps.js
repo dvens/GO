@@ -17,6 +17,39 @@ function GeoMap(id, options) {
 	_this.map = new google.maps.Map(_element, _options);
 	_this.zoom = _options.zoom;
 
+	_this.map.addListener('center_changed', function() {
+      
+      checkBounds();
+
+    });
+
+	function checkBounds() {
+
+	  var mapBounds = _this.map.getBounds();
+	  var currLat = _this.map.getCenter().lat();
+	  var currLng = _this.map.getCenter().lng();
+	  var newLat = currLat;
+	  var newLng = currLng;
+	  
+	  if( mapBounds.getNorthEast().lat() > 84 ) {
+	    
+	    newLat = currLat - (mapBounds.getNorthEast().lat() - 84);
+
+	  } else if( mapBounds.getSouthWest().lat() < -84 ) {
+	    
+	    newLat = currLng + (-84 - mapBounds.getSouthWest().lat());
+
+	  }
+	  
+	  if( (newLat != currLat) || (newLng != currLng) ) {
+	    
+	    var newCenter = new google.maps.LatLng(newLat, newLng, true);
+	    _this.map.panTo(newCenter);
+
+	  }
+
+	}
+
 	_this.addMarker = function(obj) {
 		
 		var marker = obj;
@@ -30,7 +63,7 @@ function GeoMap(id, options) {
 	}
 
 	_this.addMarkers = function(array) {
-		
+
 		for (var i = 0; i < array.length; i++) {
 			
 			this.addMarker(array[i]);
@@ -59,7 +92,7 @@ function GeoMap(id, options) {
 	}
 
 	_this.panTo = function() {
-		// TODO: Pant to exact point
+		// TODO: Pan to exact point
 	}
 
 	_this.center = function(lat, lng) {

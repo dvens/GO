@@ -1,22 +1,22 @@
 function GeoMarker(options) {
 
 	var _this = this;
-	var _options = options;
 
-	_this.marker = new google.maps.Marker(marker_options);
-
-}
-
-Marker.prototype.click = function(fn) {
+	_options = options;
+	_this.element = new google.maps.Marker(_options);
 
 }
 
-Marker.prototype.mouseover = function(fn) {
-	
+GeoMarker.prototype.click = function(fn) {
+	// TODO: make click function
 }
 
-Marker.prototype.mouseout = function(fn) {
-	
+GeoMarker.prototype.mouseover = function(fn) {
+	// TODO: make mouseover function
 }
 
-module.exports = Marker;
+GeoMarker.prototype.mouseout = function(fn) {
+	// TODO: make mouseout function
+}
+
+module.exports = GeoMarker;

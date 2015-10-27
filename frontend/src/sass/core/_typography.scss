@@ -19,7 +19,7 @@ html, body, button {
 }
 
 html {
-	color: $color-gray;
+	color: $color-black;
 	font-family: $font-family-karla;
 	font-weight: $font-weight-regular;
 	font-size: $font-size-full;
@@ -34,17 +34,17 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, .-h1 {
 	font-size: $font-size-xxl;
-	font-weight: $font-weight-bold;
+	font-weight: $font-weight-regular;
 }
 
 h2, .-h2 {
-	font-size: $font-size-xl;
-	font-weight: $font-weight-bold;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-regular;
 }
 
 h3, .-h3 {
-	font-size: $font-size-lg;
-	font-weight: $font-weight-bold;
+	font-size: $font-size-xs;
+	font-weight: $font-weight-regular;
 }
 
 h4, .-h4 {
@@ -60,6 +60,10 @@ h5, .-h5 {
 h6, .-h6 {
 	font-size: $font-size-sm;
 	font-weight: $font-weight-bold;
+}
+
+p {
+	font-size: $font-size-xs;
 }
 
 strong, b {

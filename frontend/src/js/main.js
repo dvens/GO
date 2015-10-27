@@ -1,4 +1,4 @@
-var MapHandler = require('./modules/mapHandler');
+var MapHandler = require('./modules/map/mapHandler');
 
 var main = new Main();
 main.init();
