@@ -24,7 +24,10 @@ function Maps() {
         title: item.city,
         weather: item.weather,
         cost: item['cost-of-living'], 
-        icon: './assets/images/circle.svg'
+        icon: './assets/images/circle.svg',
+        click: openWindow,
+        mouseover: mouseover,
+        mouseout: mouseout
       };
 
       var _marker = new GeoMarker(_options);
@@ -32,6 +35,18 @@ function Maps() {
 
     });
 
+  }
+
+  function openWindow() {
+    console.log('openWindow', this.title);
+  }
+
+  function mouseover() {
+    console.log('mouseover', this.title);
+  }
+
+  function mouseout() {
+    console.log('mouseout', this.title); 
   }
 
   _map.markers.forEach(function(marker) {
@@ -77,6 +92,7 @@ function Maps() {
      
 
   });
+
 
 
 
