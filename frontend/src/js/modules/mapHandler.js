@@ -226,13 +226,15 @@ function Maps() {
               var city = item.city;
               var weather = item.weather;
               var cost = item['cost-of-living'];
+              var icon = '/assets/images/circle.svg';
 
               var marker = new google.maps.Marker({
                 position: {lat: lat, lng: lng},
                 map: map,
                 title: city,
                 weather: weather,
-                cost: cost
+                cost: cost,
+                icon: icon
               });
 
               markers.push(marker);
@@ -243,14 +245,12 @@ function Maps() {
 
           infowindow.classList = "infowindow";
 
-          console.log(infowindow);
-
           for (var i = 0; i < markers.length; i++) {
             markers[i].addListener('mouseover', function() {
               var title = this.title;
               var pos = this.getPosition();
               // moet nog met css in px/em gebeuren. Nu pakken we de lang/latt en dat wil je niet
-              var lat = pos.lat();
+              var lat = pos.lat() + 2;
               var lng = pos.lng();
               click = false;
               var smallContent = '<section class"test">' + '<h1>' + title + '</h1>' + '</section>';
@@ -273,7 +273,7 @@ function Maps() {
               var weather = this.weather;
               var cost = this.cost;
               click = true;
-              var largeContent = '<section class"test">' + '<h1>' + title + '</h1>' + '<span>' + weather + '°C' + '</span>' + '<span>' + '€' + cost + '</span>' + '</section>';
+              var largeContent = '<section class"test">' + '<h1>' + title + '</h1>' + '<span>' + weather + '°C' + '</span>' + '<span>' + '€' + cost + '</span>' + '<a href="/">' + "view" + '</a>' + '</section>';
 
               infowindow.setContent(largeContent);
             });
