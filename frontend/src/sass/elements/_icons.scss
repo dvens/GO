@@ -1,0 +1,34 @@
+.icon {
+	background-color: $color-white;
+	border-radius: 4px;
+	cursor: pointer;
+	display: block;
+	height: 40px;
+	margin-left: 10px;
+	text-align: center;
+	width: 40px;
+
+	&[class*="--yellow"] {
+
+	}
+
+}
+
+/* Temp */
+.wifi {
+	svg {
+		margin-top: 10px;
+	}
+}
+
+.euro {
+	svg {
+		margin-top: 12px;
+	}
+}
+
+.weather {
+	svg {
+		margin-top: 7px;
+	}
+}

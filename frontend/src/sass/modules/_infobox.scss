@@ -1,0 +1,25 @@
+.infobox {
+	background-color: $color-yellow;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	border-radius: 4px;
+	height: calc(100% - 210px);
+	bottom: 10px;
+	right: 40px;
+	top: 180px;
+	overflow: scroll;
+	position: absolute;
+	width: 240px;
+	z-index: 2;
+}
+
+	.infobox__item {
+		
+	}
+
+	.infobox__button-holder {
+		background-color: $color-yellow;
+		bottom: 0px;
+		padding: 20px;
+		position: absolute;
+		width: 100%;
+	}

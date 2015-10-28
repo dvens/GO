@@ -1,0 +1,84 @@
+.filter {
+	background-color: $color-yellow;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	overflow: hidden;
+	padding: 25px 40px;
+	width: 100%;
+	z-index: 2;
+}
+
+	.filter__holder {
+		float: right;
+	}
+
+	.filter__item {
+		float: left;
+		margin-left: 40px;
+		margin-bottom: 10px;
+		
+		h2 {
+			margin-bottom: 15px;
+		}
+
+		&:first-child {
+			margin-left: 0px;
+		}
+
+	}
+
+	.filter__item-options {
+		
+		list-style: none;
+
+		li {
+			float: left;
+			position: relative;
+			
+			&:hover > .filter__infobox {
+				opacity: 1;
+				transform: translateY(0px);
+			}
+
+		}
+
+		.icon:first-child {
+			margin-left: 0px;
+		}
+
+	}
+
+	.filter__infobox  {
+		background: $color-blue;
+		border-radius: 4px;
+		bottom: -30px;
+		color: $color-white;
+		font-size: $font-size-xs;
+		left: calc(50% - 65px);
+		min-width: 130px;
+		opacity: 0;
+		padding: 5px 0px;
+		transform: translateY(10px);
+		transition: all .4s;
+		text-align: center;
+		position: absolute;
+		z-index: 2;
+	}
+	
+	.filter__infobox:after, .filter__infobox:before {
+		bottom: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	.filter__infobox:after {
+		border-bottom-color: $color-blue;
+		border-width: 7px;
+		margin-left: -7px;
+	}
+
+
