@@ -4,7 +4,6 @@
 	cursor: pointer;
 	display: block;
 	height: 40px;
-	margin-left: 10px;
 	text-align: center;
 	width: 40px;
 
@@ -16,14 +15,43 @@
 
 /* Temp */
 .wifi {
+	
 	svg {
+		width: 31px;
+		height: 24px;
 		margin-top: 10px;
 	}
+	
+	&[class*="--xs"] {
+
+		svg {
+			transform: scale(0.7);
+			transform-origin: 50% 50%;
+		}
+	
+	}
+
 }
 
 .euro {
 	svg {
 		margin-top: 12px;
+	}
+
+	&[class*="--xs"] {
+
+		svg {
+			margin-top: 14px;
+		}
+	
+	}
+
+	&[class*="--sm"] {
+
+		svg {
+			margin-top: 13px;
+		}
+	
 	}
 }
 

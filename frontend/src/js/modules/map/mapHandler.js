@@ -24,7 +24,10 @@ function Maps() {
         title: item.city,
         weather: item.weather,
         cost: item['cost-of-living'], 
-        icon: './assets/images/circle.svg'
+        icon: './assets/images/circle.svg',
+        click: openWindow,
+        mouseover: mouseover,
+        mouseout: mouseout
       };
 
       var _marker = new GeoMarker(_options);
@@ -34,53 +37,65 @@ function Maps() {
 
   }
 
+  function openWindow() {
+    console.log('openWindow', this.title);
+  }
+
+  function mouseover() {
+    console.log('mouseover', this.title);
+  }
+
+  function mouseout() {
+    console.log('mouseout', this.title); 
+  }
+
   _map.markers.forEach(function(marker) {
 
-      marker.addListener('mouseover', function() {
+      // marker.addListener('mouseover', function() {
         
-        var title = this.title;
-        var pos = this.getPosition();
+      //   var title = this.title;
+      //   var pos = this.getPosition();
 
-        // // moet nog met css in px/em gebeuren. Nu pakken we de lang/latt en dat wil je niet
-        var lat = pos.lat();
-        var lng = pos.lng();
-        _click = false;
+      //   // // moet nog met css in px/em gebeuren. Nu pakken we de lang/latt en dat wil je niet
+      //   var lat = pos.lat();
+      //   var lng = pos.lng();
+      //   _click = false;
 
-        var smallContent = '<section class"test">' + '<h1>' + title + '</h1>' + '</section>';
+      //   var smallContent = '<section class"test">' + '<h1>' + title + '</h1>' + '</section>';
 
-        if ( _click != true ) {
+      //   if ( _click != true ) {
 
-          _infowindow.setContent(smallContent);
-          _infowindow.setPosition({lat: lat, lng: lng});
-          _infowindow.open(_map.map);
+      //     _infowindow.setContent(smallContent);
+      //     _infowindow.setPosition({lat: lat, lng: lng});
+      //     _infowindow.open(_map.map);
 
-        }
+      //   }
 
-      });
+      // });
 
-      marker.addListener('mouseout', function() {
+      // marker.addListener('mouseout', function() {
         
-        if ( _click != true ) {
+      //   if ( _click != true ) {
           
-          _infowindow.close(_map.map);
+      //     _infowindow.close(_map.map);
 
-        }
+      //   }
 
-      });
+      // });
 
-      marker.addListener('click', function() {
+      // marker.addListener('click', function() {
         
-        var title = this.title;
-        var weather = this.weather;
-        var cost = this.cost;
+      //   var title = this.title;
+      //   var weather = this.weather;
+      //   var cost = this.cost;
         
-        _click = true;
+      //   _click = true;
         
-        var largeContent = '<section class"test">' + '<h1>' + title + '</h1>' + '<span>' + weather + '°C' + '</span>' + '<span>' + '€' + cost + '</span>' + '</section>';
+      //   var largeContent = '<section class"test">' + '<h1>' + title + '</h1>' + '<span>' + weather + '°C' + '</span>' + '<span>' + '€' + cost + '</span>' + '</section>';
 
-        _infowindow.setContent(largeContent);
+      //   _infowindow.setContent(largeContent);
 
-      });
+      // });
 
   });
 

@@ -5,18 +5,36 @@ function GeoMarker(options) {
 	_options = options;
 	_this.element = new google.maps.Marker(_options);
 
-}
+	_this.element.addListener('click', function() {
 
-GeoMarker.prototype.click = function(fn) {
-	// TODO: make click function
-}
+		if( _options.click ) {
 
-GeoMarker.prototype.mouseover = function(fn) {
-	// TODO: make mouseover function
-}
+			_options.click.apply(this);	
 
-GeoMarker.prototype.mouseout = function(fn) {
-	// TODO: make mouseout function
+		}
+		
+	});
+
+	_this.element.addListener('mouseover', function() {
+
+		if( _options.mouseover ) {
+
+			_options.mouseover.apply(this);	
+
+		}
+		
+	});
+
+	_this.element.addListener('mouseout', function() {
+
+		if( _options.mouseout ) {
+
+			_options.mouseout.apply(this);	
+
+		}
+		
+	});
+
 }
 
 module.exports = GeoMarker;
