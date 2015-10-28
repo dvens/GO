@@ -2,12 +2,12 @@ var GeoMap = require('./../../ui/maps/maps');
 var GeoMarker = require('./../../ui/maps/marker');
 var JSONLoader = require('./../../helpers/jsonLoader');
 var config = require('./config');
+var InfoWindow = require('./../../ui/maps/infoWindow');
 
 function Maps() {
 
   var _loader = new JSONLoader();
   var _map = new GeoMap('#map', config);
-  var _infowindow = new google.maps.InfoWindow();
 
   var _click;
 
@@ -35,55 +35,54 @@ function Maps() {
   }
 
   _map.markers.forEach(function(marker) {
+      var _content = {
+        title: marker.title,
+        weather: marker.weather,
+        cost: marker.cost,
+      }
 
-      marker.addListener('mouseover', function() {
-        
-        var title = this.title;
-        var pos = this.getPosition();
+      var smallContentString = '<section class"test">' + '<h1>' + _content.title + '</h1>' + '</section>';
+      var largeContentString = '<section class"test">' + '<h1>' + _content.title + '</h1>' + '<span>' + _content.weather + '°C' + '</span>' + '<span>' + '€' + _content.cost + '</span>' + '</section>';
 
-        // // moet nog met css in px/em gebeuren. Nu pakken we de lang/latt en dat wil je niet
-        var lat = pos.lat();
-        var lng = pos.lng();
-        _click = false;
+      var _options = {
+        smallContent: smallContentString,
+        largeContent: largeContentString,
+        clearstyle: true,
+        position: {lat: marker.position.lat(), lng: marker.position.lng()}
+      }
 
-        var smallContent = '<section class"test">' + '<h1>' + title + '</h1>' + '</section>';
+      // for each marker add a new infowindow
+      var _infoWindow = new InfoWindow(_options);
 
-        if ( _click != true ) {
 
-          _infowindow.setContent(smallContent);
-          _infowindow.setPosition({lat: lat, lng: lng});
-          _infowindow.open(_map.map);
 
-        }
+  // on hover
+      // put the infowindows on the map
+      _infoWindow.open(_map.map);
+      // put the infowindows on the good position
+      _infoWindow.addPosition(_options.position);
+      // ToDo: make an if statement of this!
+        // add only the title to the infoWindow
+        _infoWindow.addSmallContent(_options.smallContent);
 
-      });
+  // on mouse out & if the marker is not clicked
+      // close the windows on the map
+      // _infoWindow.close(_map.map);
 
-      marker.addListener('mouseout', function() {
-        
-        if ( _click != true ) {
-          
-          _infowindow.close(_map.map);
+  // on Click
+      // add the title, Weather and cost to the infowindow
+      _infoWindow.addLargeContent(_options.largeContent);
 
-        }
-
-      });
-
-      marker.addListener('click', function() {
-        
-        var title = this.title;
-        var weather = this.weather;
-        var cost = this.cost;
-        
-        _click = true;
-        
-        var largeContent = '<section class"test">' + '<h1>' + title + '</h1>' + '<span>' + weather + '°C' + '</span>' + '<span>' + '€' + cost + '</span>' + '</section>';
-
-        _infowindow.setContent(largeContent);
-
-      });
+  
+     
 
   });
+
+
 
 }
 
 module.exports = Maps;
+
+
+
