@@ -1,9 +1,11 @@
 function GeoMarker(options) {
 
 	var _this = this;
+	var _audio = new Audio('./assets/images/button.mp3');
 
 	_options = options;
 	_this.element = new google.maps.Marker(_options);
+	_this.infowindow = _options.infowindow;
 
 	_this.element.addListener('click', function() {
 
@@ -19,6 +21,7 @@ function GeoMarker(options) {
 
 		if( _options.mouseover ) {
 
+			_audio.play();
 			_options.mouseover.apply(this);	
 
 		}

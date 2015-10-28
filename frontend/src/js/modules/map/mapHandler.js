@@ -9,22 +9,25 @@ function Maps() {
   var _loader = new JSONLoader();
   var _map = new GeoMap('#map', config);
 
-  var _click;
-
   _loader.load('./src/data/places.json', setMarkers);
 
   function setMarkers() {
 
     var _markers = this;
 
-    _markers.forEach(function(item) {
+    _markers.forEach(function(marker) {
+
+      var _infowindowOptions = {
+        position: {lat: parseFloat(marker.lat), lng: parseFloat(marker.lng)}
+      }
 
       var _options = {
-        position: { lat: parseFloat(item.lat), lng: parseFloat(item.lng) },
-        title: item.city,
-        weather: item.weather,
-        cost: item['cost-of-living'], 
+        position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
+        title: marker.city,
+        weather: marker.weather,
+        cost: marker['cost-of-living'], 
         icon: './assets/images/circle.svg',
+        infowindow: new InfoWindow(_infowindowOptions),
         click: openWindow,
         mouseover: mouseover,
         mouseout: mouseout
@@ -38,63 +41,31 @@ function Maps() {
   }
 
   function openWindow() {
-    console.log('openWindow', this.title);
+
+    var _content = '<section class"test">' + '<h1>' + this.title + '</h1>' + '<span>' + this.weather + '°C' + '</span>' + '<span>' + '€' + this.cost + '</span>' + '</section>';
+    var _lat = this.position.lat();
+    var _lng = this.position.lng();
+
+    _map.panTo(_lat, _lng);
+    this.infowindow.setContent(_content);
+    this.infowindow.open(_map.map);
+
   }
 
   function mouseover() {
-    console.log('mouseover', this.title);
+
+    var _content = '<section class"test">' + '<h1>' + this.title + '</h1>' + '</section>';
+    this.infowindow.setContent(_content);
+    this.infowindow.open(_map.map);
+
   }
 
   function mouseout() {
-    console.log('mouseout', this.title); 
+
+    this.infowindow.close(_map.map);
+
+
   }
-
-  _map.markers.forEach(function(marker) {
-      var _content = {
-        title: marker.title,
-        weather: marker.weather,
-        cost: marker.cost,
-      }
-
-      var smallContentString = '<section class"test">' + '<h1>' + _content.title + '</h1>' + '</section>';
-      var largeContentString = '<section class"test">' + '<h1>' + _content.title + '</h1>' + '<span>' + _content.weather + '°C' + '</span>' + '<span>' + '€' + _content.cost + '</span>' + '</section>';
-
-      var _options = {
-        smallContent: smallContentString,
-        largeContent: largeContentString,
-        clearstyle: true,
-        position: {lat: marker.position.lat(), lng: marker.position.lng()}
-      }
-
-      // for each marker add a new infowindow
-      var _infoWindow = new InfoWindow(_options);
-
-
-
-  // on hover
-      // put the infowindows on the map
-      _infoWindow.open(_map.map);
-      // put the infowindows on the good position
-      _infoWindow.addPosition(_options.position);
-      // ToDo: make an if statement of this!
-        // add only the title to the infoWindow
-        _infoWindow.addSmallContent(_options.smallContent);
-
-  // on mouse out & if the marker is not clicked
-      // close the windows on the map
-      // _infoWindow.close(_map.map);
-
-  // on Click
-      // add the title, Weather and cost to the infowindow
-      _infoWindow.addLargeContent(_options.largeContent);
-
-  
-     
-
-  });
-
-
-
 
 }
 
