@@ -56,8 +56,8 @@ function Maps() {
         cost: marker.cost,
       }
 
-      var smallContentString = '<section class"test">' + '<h1>' + _content.title + '</h1>' + '</section>';
-      var largeContentString = '<section class"test">' + '<h1>' + _content.title + '</h1>' + '<span>' + _content.weather + '°C' + '</span>' + '<span>' + '€' + _content.cost + '</span>' + '</section>';
+      var smallContentString = '<section class"small__section">' + '<h1>' + _content.title + '</h1>' + '</section>';
+      var largeContentString = '<section class"large__section">' + '<h1>' + _content.title + '</h1>' + '<span>' + _content.weather + '°C' + '</span>' + '<span>' + '€' + _content.cost + '</span>' + '</section>';
 
       var _options = {
         smallContent: smallContentString,
