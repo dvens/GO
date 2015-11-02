@@ -109,7 +109,6 @@ function Maps() {
   function mouseout () {
 
     this.overlayview.hide();
-    //_this.marker.icon.size = new google.maps.Size(50, 50);
     
   }
 
