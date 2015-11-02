@@ -116,41 +116,4 @@ $fontSize: 12px;
 			float: right;
 		}
 	}
-}	
-
-
-
-/*.filter__infobox  {
-	background: $color-gray;
-	border-radius: 4px;
-	bottom: -40px;
-	color: $color-black;
-	font-size: $font-size-xs;
-	left: calc(50% - 65px);
-	min-width: 130px;
-	opacity: 0;
-	padding: 5px 0px;
-	transform: translateY(10px);
-	transition: all .4s;
-	text-align: center;
-	visibility: hidden;
-	position: absolute;
-	z-index: 2;
-	
-	&:after, &:before {
-		bottom: 100%;
-		left: 50%;
-		border: solid transparent;
-		content: " ";
-		height: 0;
-		width: 0;
-		position: absolute;
-		pointer-events: none;
-	}
-
-	&:after {
-		border-bottom-color: $color-gray;
-		border-width: 7px;
-		margin-left: -7px;
-	}
-}*/
+}

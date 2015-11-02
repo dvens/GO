@@ -39,6 +39,14 @@
 	}
 }
 
+.-tx-left {
+	text-align: left;
+}
+
+.-tx-right {
+	text-align: right;
+}
+
 // Background
 .-bg-black { background-color: $color-black; }
 .-bg-gray { background-color: $color-gray-dark; }

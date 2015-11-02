@@ -4,15 +4,14 @@ function GeoMarker(options) {
 	var _audio = new Audio('./assets/images/button.mp3');
 
 	_options = options;
+	_this.overlayview;
 	_this.element = new google.maps.Marker(_options);
 
 	_this.element.addListener('click', function() {
 
-
 		if( _options.click ) {
 
 			_options.click.apply(this);	
-			console.log("Foo");
 
 		}
 			
@@ -20,12 +19,12 @@ function GeoMarker(options) {
 
 	_this.element.addListener('mouseover', function() {
 
-		
+		if( _options.mouseover ) {
 
 			_audio.play();
-			// _options.mouseover.apply(this);	
+			_options.mouseover.apply(this);	
 
-
+		}
 		
 	});
 
@@ -38,6 +37,12 @@ function GeoMarker(options) {
 		}
 		
 	});
+
+}
+
+GeoMarker.prototype.setOverlayView = function(el) {
+
+	this.element.overlayview = el;
 
 }
 

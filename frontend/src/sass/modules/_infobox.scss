@@ -11,17 +11,44 @@
 	width: 240px;
 	z-index: 2;
 
-	div:first-child {
+	.infobox__holder {
 		height: 100%;
 		overflow: scroll;
-		text-align: center;
-		padding: 30px 0px;
+		padding: 15px 20px;
+	}
+
+	&:nth-child(2) {
+		right: 320px;
+	}
+
+	&:nth-child(3) {
+		right: 600px;
 	}
 
 }
 
 	.infobox__item {
+		border-bottom: 2px solid $color-yellow-dark;
+		margin-bottom: 15px;
+		padding-bottom: 15px;
+
+		.icon svg {
+			margin-top: 10px;
+		}
+
+		h2 {
+			margin-bottom: 15px;
+		}
 		
+		h2 > span {
+			display: block;
+		}
+
+		
+		&[class*="--center"] {
+			text-align: center;
+		}
+
 	}
 
 	.infobox__button-holder {
@@ -30,4 +57,41 @@
 		padding: 20px;
 		position: absolute;
 		width: 100%;
+	}
+
+	.infobox__icon {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+
+		&[class*="--sun"] {
+			width: 35px;
+		}
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.infobox__number {
+		display: block;
+		margin-top: -5px;
+		position: relative;
+
+		&[class*="--wifi"] {
+
+			&:after {
+				content: "mbps";
+				font-size: 9px;
+				right: 0px;
+				top: -5px;
+				position: absolute;
+			}
+
+		}
+
+		&:after {
+			content: "°C";
+		}
 	}

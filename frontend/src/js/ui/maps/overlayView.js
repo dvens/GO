@@ -1,27 +1,19 @@
 function OverlayView(options) {
 	
-	_options = options;
+	_overlayOptions = options;
 	
-	this.marker = _options.marker;
-	this.content = _options.content;
-	this.map = _options.marker;
-	this.cssClass = _options.cssClass || null;
-	this.lat = _options.lat;
-	this.lng = _options.lat;
+	this.marker = _overlayOptions.marker;
+	this.content = _overlayOptions.content;
+	this.map = _overlayOptions.marker;
+	this.cssClass = _overlayOptions.cssClass || null;
+	this.lat = _overlayOptions.lat;
+	this.lng = _overlayOptions.lat;
 	this.bounds = new google.maps.LatLng(this.lat, this.lng);
 	this.div_ = null;
-	this.setMap(_options.map);
+	this.setMap(_overlayOptions.map);
 
 	var thisMarker = this.marker;
 	var _this = this;
-	_this.marker.addListener('mouseover', function () {
-	    _this.show();
-	    _this.marker.icon.size = new google.maps.Size(50, 50);
-	    console.log(_this.marker.icon);
-	});
-	_this.marker.addListener('mouseout', function () {
-	    _this.hide();
-	});
 
 }
 

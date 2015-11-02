@@ -64,12 +64,6 @@
 	}
 
 }
-
-.laptop { background-image: url('../assets/images/laptop.jpg'); }
-.boy { background-image: url('../assets/images/boy.jpg'); }
-.girl { background-image: url('../assets/images/girl.jpg'); }
-.julian { background-image: url('../assets/images/julian.jpg'); }
-.game { background-image: url('../assets/images/game.jpg');}
 	
 @for $i from 1 through $grid-columns {
 	.grid__column-#{$i} {

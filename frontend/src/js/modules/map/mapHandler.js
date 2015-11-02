@@ -2,8 +2,8 @@ var GeoMap = require('./../../ui/maps/maps');
 var GeoMarker = require('./../../ui/maps/marker');
 var JSONLoader = require('./../../helpers/jsonLoader');
 var OverlayView = require('./../../ui/maps/overlayView');
+var Peach = require('./../../vendor/peach-min');
 var config = require('./config');
-
 
 function Maps() {
 
@@ -18,6 +18,7 @@ function Maps() {
 
     _markers.forEach(function(marker) {
 
+
       var _options = {
         position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
         icon: {
@@ -25,13 +26,17 @@ function Maps() {
             size: new google.maps.Size(10, 10),
             class: 'markerIcon'
         },
-        click: showBar
+        title: marker.city,
+        weather: marker.weather,
+        cost: marker['cost-of-living'],
+        click: openWindow,
+        mouseover: mouseover,
+        mouseout: mouseout
       };
 
       // add the marker
       var _marker = new GeoMarker(_options);
       _map.addMarker(_marker.element);
-
 
       // Content calc
       var weatherCheck = parseFloat(marker.weather);
@@ -42,6 +47,7 @@ function Maps() {
             return '../assets/images/icons/ice.svg';
 
         } else if ( weatherCheck >= 20 && weatherCheck < 25 ) {
+
 
             return '../assets/images/icons/rain.svg';
 
@@ -92,14 +98,41 @@ function Maps() {
         marker: _marker.element,
         map: _map.map
       }
+
       var overlayview = new OverlayView(_overlayviewoptions);
+
+      _marker.setOverlayView(overlayview);
 
     });
   }
 
-  function showBar() {
+  function mouseout () {
 
+    this.overlayview.hide();
+    //_this.marker.icon.size = new google.maps.Size(50, 50);
     
+  }
+
+  function mouseover () {
+
+    this.overlayview.show();
+    
+  }
+
+  function openWindow() {
+
+    var _content = '<section class"test">' + '<h1>' + this.title + '</h1>' + '<span>' + this.weather + '°C' + '</span>' + '<span>' + '€' + this.cost + '</span>' + '</section>';
+    var _lat = this.position.lat();
+    var _lng = this.position.lng();
+
+    var data = {
+      title: this.title,
+      weather: this.weather
+    };
+
+    Peach.render('.infobox-template', { data: data }, true);
+
+    _map.panTo(_lat, _lng);
 
   }
 
