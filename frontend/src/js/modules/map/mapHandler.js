@@ -123,6 +123,7 @@ function Maps() {
   function mouseout () {
 
     this.overlayview.hide();
+
     if (this.title === current) {
 
       this.setIcon({ url: './assets/images/circleCurrent.svg' });
