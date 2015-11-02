@@ -13,7 +13,7 @@ $fontSize: 12px;
 	  height: 100%;
 	  z-index: 0;
 	  background-color: rgba(217, 217, 217, 0.7);
-	  border-radius: 4px;
+	  /*border-radius: 4px;*/
 	}
 
 }
@@ -22,29 +22,29 @@ $fontSize: 12px;
 	/* + BorderShadow*/
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
-	width: 172px !important;
+	width: 200px !important;
 	height: 130px !important;
 	border-radius: 4px;
 	font-family: "Avenir";
 	font-weight: 500;
+	-webkit-clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
+	clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
+	shape-outside: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
+	stroke-miterlimit: 10%;
+	stroke: black;
+	stroke-width: 3px;
+	   		/*<path fill="none" d="M21 18v18L3 27l18-9zm0-11.998C21 3.792 22.787 2 24.998 2h164.004C191.21 2 193 3.8 193 6.002v120.996c0 2.21-1.787 4.002-3.998 4.002H24.998C22.79 131 21 129.2 21 126.998V6.002z"/>*/
 
-	&:after {
-		content: " ";
-		width: 30px;
-		height: 30px;
-		background-image: url('../assets/images/icons/arrow.svg');
-		background-repeat: no-repeat;
-		position: absolute;
-		top: 100%;
-		left: 18%;
-		/*pointer-events: none;*/
-	}
 
 	/* For the color overlay */
 	* {
     	position: relative;
     	font-family: "Avenir";
 	}	
+
+	.arrow__padding {
+		padding-left: 10%;
+	}
 
 	.header	{
 
