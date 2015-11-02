@@ -138,7 +138,6 @@ function Maps() {
   function mouseover () {
 
     this.overlayview.show();
-    console.log(this);
     if (this.title === current) {
 
       this.setIcon({ url: './assets/images/circleCurrentLarge.svg' });
