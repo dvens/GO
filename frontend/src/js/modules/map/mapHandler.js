@@ -1,8 +1,9 @@
 var GeoMap = require('./../../ui/maps/maps');
 var GeoMarker = require('./../../ui/maps/marker');
 var JSONLoader = require('./../../helpers/jsonLoader');
-var config = require('./config');
 var InfoWindow = require('./../../ui/maps/infoWindow');
+var Peach = require('./../../vendor/peach-min');
+var config = require('./config');
 
 function Maps() {
 
@@ -45,6 +46,13 @@ function Maps() {
     var _content = '<section class"test">' + '<h1>' + this.title + '</h1>' + '<span>' + this.weather + '°C' + '</span>' + '<span>' + '€' + this.cost + '</span>' + '</section>';
     var _lat = this.position.lat();
     var _lng = this.position.lng();
+
+    var data = {
+      title: this.title,
+      weather: this.weather
+    };
+
+    Peach.render('.infobox-template', { data: data }, true);
 
     _map.panTo(_lat, _lng);
     this.infowindow.setContent(_content);

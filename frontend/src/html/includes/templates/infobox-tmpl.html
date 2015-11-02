@@ -1,11 +1,11 @@
-<div data-peach-container="main">
+<template class="infobox-template"> 
 
 	<div class="infobox">
 		
 		<div class="infobox__holder"> 
 
 			<div class="infobox__item infobox__item--center">
-				<h2>your current destination <span>Amsterdam</span></h2> 
+				<h2>your destination <span>{{ data.title }}</span></h2> 
 				
 				<div class="grid__row">
 					
@@ -16,7 +16,7 @@
 					
 					<div class="grid__column-6">
 						<span class="infobox__icon">@@include('./src/assets/images/icons/rain-animation.svg')</span>
-						<span class="infobox__number">16</span>
+						<span class="infobox__number">{{ data.weather }}</span>
 					</div>
 
 				</div>	
@@ -41,7 +41,7 @@
 				<div class="grid__row -pdv-sm">
 					
 					<div class="grid__column-12">
-						<input min="1" max="200" value="100" type="range">
+						<input type="range">
 					</div>
 
 				</div>	
@@ -62,6 +62,10 @@
 
 		</div>
 
-	</div>
+		<div class="infobox__button-holder">
+			<a class="button">save destination</a>
+		</div>
 
-</div>
+	</div>
+	
+</template>

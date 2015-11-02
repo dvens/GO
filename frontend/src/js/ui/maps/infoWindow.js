@@ -18,52 +18,7 @@ function InfoWindow(options) {
 
 		iwOuter.parentElement.parentElement.style.top = '-10px';
 
-
 	});
-
-	// _this.element.addListener('domready', function() {
-
-
-
-	// 	var iwOuter = document.querySelectorAll('.gm-style-iw');
-
-	// 	for (var i = 0; i < iwOuter.length; i++) {
-	// 		iwOuter[i].style.background = 'tomato';
-	// 	}
-
-	// 	// console.log(iwOuter);
-
-	// 	// var iwBackground = iwOuter.previousElementSibling;
-
-	// 	// iwOuter.style.background = 'tomato';
-	// 	// iwBackground.style.display = 'none';
-
-	// 	// var secondChild = iwBackground.children[2];
-	// 	// secondChild.style.display = 'none';
-
-	// 	// var fourthChild = iwBackground.children[4];
-	// 	// secondChild.style.display = 'none';
-
-	// 	// console.log(iwOuter);
-
-
-	// });
-	// console.log(iwBackground);
-
-
-	// // Removes background shadow DIV
-	// iwBackground.children(':nth-child(2)').css({'display' : 'none'});
-
-	// // Removes white background DIV
-	// iwBackground.children(':nth-child(4)').css({'display' : 'none'});
-
-	// if (_options.clearstyle) {
-	// 	clearStyle();
-	// }
-
-	// function clearStyle() {
-
-	// }
 
 }
 

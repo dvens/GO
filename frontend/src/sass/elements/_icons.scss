@@ -1,14 +1,15 @@
+/* Icons */
 .icon {
 	background-color: $color-white;
 	border-radius: 4px;
-	cursor: pointer;
 	display: block;
 	height: 40px;
 	text-align: center;
 	width: 40px;
 
 	&[class*="--yellow"] {
-
+		background-color: $color-yellow;
+		border: 2px solid $color-yellow-dark;
 	}
 
 }
@@ -58,4 +59,104 @@
 	svg {
 		margin-top: 7px;
 	}
+}
+
+/* Icons animations */
+.sun {
+    transform-origin: center center;
+    animation: animateSunRotate 20s linear infinite normal;
+}
+
+@keyframes animateSunRotate{
+    0% { transform:rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.drop{
+    transform-origin: top;
+    animation: animateDropLarge 1s infinite normal;
+
+    &:nth-child(2n+1){
+    	animation-delay: 0.25s;
+	}
+	
+	&:nth-child(2n+1){
+    	animation-delay: 0.15s;
+	}
+
+	&:nth-child(2n){
+    	animation-delay: 0.1s;
+	}
+
+	&:nth-child(3n){
+    	animation-delay: 0.3s;
+	}
+
+}
+
+@keyframes animateDropLarge{
+    0% { transform:scale(0.4); transform-origin: top; }
+    60% { transform:scale(1); }
+    100% { opacity: 0; }
+}
+
+.cloud {
+    transform-origin: bottom;
+    animation: animateSnow 2s ease-in-out infinite alternate;
+}
+
+@keyframes animateSnow{
+    0% { transform:skewX(0deg); }
+    50% { transform:skewX(3deg); }
+    100% { transform:skewX(-3deg); }
+}
+
+.ice {
+    transform-origin: top;
+    animation: animateSnowflakes 2s 0.5s infinite;
+
+    &:nth-child(1) {
+    	animation-delay: 0.2s;
+    }
+
+    &:nth-child(2) {
+    	animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+    	animation-delay: 0.3s;
+    }
+
+    &:nth-child(4) {
+    	animation-delay: 0.1s;
+    }
+}
+
+@keyframes animateSnowflakes{
+    0% { transform: scale(0.4); transform-origin: top; }
+    60% { transform:scale(1); }
+    100% { opacity: 0; }
+}
+
+.wifi-land path {
+    transform-origin: bottom;
+    animation: animateWifi 2s ease-in-out 1;
+	
+	&:nth-child(3){
+    	animation-delay: 0.4s;
+	}
+
+	&:nth-child(2){
+    	animation-delay: 0.9s;
+	}
+
+	&:nth-child(4){
+    	animation-delay: 1.4s;
+	}
+
+}
+
+@keyframes animateWifi{
+    0% { transform:scale(0); opacity:0; transform-origin: bottom; }
+    100% {transform:scale(1); opacity:1; } 
 }

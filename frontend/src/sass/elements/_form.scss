@@ -1,0 +1,102 @@
+// Var width and height
+$track-width: 100%;
+$track-height: 2px;
+$thumb-width: 25px;
+$thumb-height: 25px;
+
+// Var colors
+$track-color: $color-yellow-dark;
+$thumb-background: url('./../src/assets/images/icons/slider.svg');
+
+@mixin thumb-base {
+  background: $thumb-background no-repeat center center;
+  cursor: pointer;
+  height: $thumb-height;
+  width: $thumb-width;
+}
+
+@mixin track-base {
+  background: $track-color;
+  cursor: pointer;
+  height: $track-height;
+  width: $track-width;
+}
+
+input[type=range] {
+  @include track-base;
+  
+  position: relative;
+  top: -5px;
+  -webkit-appearance: none;
+  width: $track-width; 
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb-base;
+
+    margin-top: -12px;
+    -webkit-appearance: none;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb-base;
+
+    border: none;
+  }
+
+  &::-ms-thumb {
+    @include thumb-base;
+  }
+  
+  &::-ms-track {
+    @include track-base;
+    
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track-base;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background: $color-yellow-dark;
+  }
+
+  &::-moz-range-track {
+    @include track-base;
+  }
+
+  &::-ms-track {
+    @include track-base;
+
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  } 
+
+  &::-ms-fill-lower {
+    background: $track-color;
+  }
+
+  &:focus::-ms-fill-lower {
+    background: $track-color;
+  }
+
+  &::-ms-fill-upper {
+    background: $track-color;
+  }
+
+  &:focus::-ms-fill-upper {
+    background: $track-color;
+  }
+
+}
