@@ -1,15 +1,14 @@
 var GeoMap = require('./../../ui/maps/maps');
 var GeoMarker = require('./../../ui/maps/marker');
 var JSONLoader = require('./../../helpers/jsonLoader');
+var OverlayView = require('./../../ui/maps/overlayView');
 var config = require('./config');
-var InfoWindow = require('./../../ui/maps/infoWindow');
+
 
 function Maps() {
 
   var _loader = new JSONLoader();
   var _map = new GeoMap('#map', config);
-
-  var _click;
 
   _loader.load('./src/data/places.json', setMarkers);
 
@@ -17,88 +16,95 @@ function Maps() {
 
     var _markers = this;
 
-    _markers.forEach(function(item) {
+    _markers.forEach(function(marker) {
 
       var _options = {
-        position: { lat: parseFloat(item.lat), lng: parseFloat(item.lng) },
-        title: item.city,
-        weather: item.weather,
-        cost: item['cost-of-living'], 
-        icon: './assets/images/circle.svg',
-        click: openWindow,
-        mouseover: mouseover,
-        mouseout: mouseout
+        position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
+        icon: {
+            url: './assets/images/circle.svg',
+            size: new google.maps.Size(10, 10),
+            class: 'markerIcon'
+        },
+        click: showBar
       };
 
+      // add the marker
       var _marker = new GeoMarker(_options);
       _map.addMarker(_marker.element);
 
+
+      // Content calc
+      var weatherCheck = parseFloat(marker.weather);
+      function weatherIcon(marker) {
+
+        if ( weatherCheck <= 20 ) {
+
+            return '../assets/images/icons/ice.svg';
+
+        } else if ( weatherCheck >= 20 && weatherCheck < 25 ) {
+
+            return '../assets/images/icons/rain.svg';
+
+
+        } else if ( weatherCheck >= 25 && weatherCheck < 30 ) {
+
+            return '../assets/images/icons/cloud.svg';
+
+          
+        } else if ( weatherCheck >= 30 ) {
+          
+            return '../assets/images/icons/sun.svg';
+
+        }
+
+      }
+      var wifiCheck = parseFloat(marker.wifi);
+      function wifiIcon(marker) {
+
+        if ( wifiCheck < 20 ) {
+
+            return '../assets/images/icons/wifi.svg';
+
+        } else if ( wifiCheck >= 20 ) {
+
+            return '../assets/images/icons/wifi-sm.svg';
+        }
+
+      }
+
+      // Content
+      var overlayviewBoxTemp = document.querySelector('.overlayviewTemp');
+      var overlayviewBox = overlayviewBoxTemp.content.querySelector('.overlayview');
+      overlayviewBoxTemp.content.querySelector('.title').innerHTML = marker.city;
+      overlayviewBoxTemp.content.querySelector('.cost').innerHTML = marker['cost-of-living'];
+      overlayviewBoxTemp.content.querySelector('.weather').src = weatherIcon();
+      overlayviewBoxTemp.content.querySelector('.wifi__icon').src = wifiIcon();
+      overlayviewBoxTemp.content.querySelector('.wifi').innerHTML = marker.wifi;
+      // clone the contentBlock above
+      var content = document.importNode(overlayviewBoxTemp.content.querySelector('.overlayview'), true);
+      content.style.background = 'url(' +  marker.img + ')';
+
+      // Overlayview options
+      var _overlayviewoptions = {
+        lat: parseFloat(marker.lat),
+        lng: parseFloat(marker.lng),
+        content: content,
+        marker: _marker.element,
+        map: _map.map
+      }
+      var overlayview = new OverlayView(_overlayviewoptions);
+
     });
-
   }
 
-  function openWindow() {
-    console.log('openWindow', this.title);
+  function showBar() {
+
+    
+
   }
-
-  function mouseover() {
-    console.log('mouseover', this.title);
-  }
-
-  function mouseout() {
-    console.log('mouseout', this.title); 
-  }
-
-  _map.markers.forEach(function(marker) {
-      var _content = {
-        title: marker.title,
-        weather: marker.weather,
-        cost: marker.cost,
-      }
-
-      var smallContentString = '<section class"small__section">' + '<h1>' + _content.title + '</h1>' + '</section>';
-      var largeContentString = '<section class"large__section">' + '<h1>' + _content.title + '</h1>' + '<span>' + _content.weather + '°C' + '</span>' + '<span>' + '€' + _content.cost + '</span>' + '</section>';
-
-      var _options = {
-        smallContent: smallContentString,
-        largeContent: largeContentString,
-        clearstyle: true,
-        position: {lat: marker.position.lat(), lng: marker.position.lng()}
-      }
-
-      // for each marker add a new infowindow
-      var _infoWindow = new InfoWindow(_options);
-
-
-
-  // on hover
-      // put the infowindows on the map
-      _infoWindow.open(_map.map);
-      // put the infowindows on the good position
-      _infoWindow.addPosition(_options.position);
-      // ToDo: make an if statement of this!
-        // add only the title to the infoWindow
-        _infoWindow.addSmallContent(_options.smallContent);
-
-  // on mouse out & if the marker is not clicked
-      // close the windows on the map
-      // _infoWindow.close(_map.map);
-
-  // on Click
-      // add the title, Weather and cost to the infowindow
-      _infoWindow.addLargeContent(_options.largeContent);
-
-  
-     
-
-  });
-
-
-
 
 }
 
+
+
 module.exports = Maps;
-
-
-

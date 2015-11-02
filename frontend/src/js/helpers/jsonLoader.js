@@ -24,7 +24,6 @@ function JSONLoader () {
    	 		return JSON.parse(_xRequest.responseText);
 
    	 	}
-		
 
 	}
 	

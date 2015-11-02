@@ -91,11 +91,7 @@ function GeoMap(id, options) {
 
 	}
 
-	_this.panTo = function() {
-		// TODO: Pan to exact point
-	}
-
-	_this.center = function(lat, lng) {
+	_this.panTo = function(lat, lng) {
 		
 		this.map.panTo(new google.maps.LatLng(lat, lng));
 
