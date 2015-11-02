@@ -39,11 +39,11 @@ OverlayView.prototype.draw = function() {
     var lat = this.lat;
     var lng = this.lng;
     var ne = overlayProjection.fromLatLngToDivPixel(this.marker.getPosition());
-    var left = (ne.x - 27) + 'px';
-    var top = (-ne.y + 27) + 'px';
+    var left = (ne.x + 10) + 'px';
+    var top = (ne.y - 30) + 'px';
     var div = this.div_;
     div.style.left = left;
-    div.style.bottom = top;
+    div.style.top = top;
 
 };
 

@@ -9,6 +9,7 @@ function Maps() {
 
   var _loader = new JSONLoader();
   var _map = new GeoMap('#map', config);
+  var current = 'Amsterdam';
 
   _loader.load('./src/data/places.json', setMarkers);
 
@@ -18,13 +19,25 @@ function Maps() {
 
     _markers.forEach(function(marker) {
 
+      function currentIcon() {
+        // Change to currentLocation
+        if (marker.city === current) {
+
+          return './assets/images/circleCurrent.svg';
+
+        } else {
+
+          return './assets/images/circle.svg';
+
+        }
+
+      }
+
 
       var _options = {
         position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
         icon: {
-            url: './assets/images/circle.svg',
-            size: new google.maps.Size(10, 10),
-            class: 'markerIcon'
+          url: currentIcon()
         },
         title: marker.city,
         weather: marker.weather,
@@ -106,16 +119,37 @@ function Maps() {
     });
   }
 
+
   function mouseout () {
 
     this.overlayview.hide();
+
+    if (this.title === current) {
+
+      this.setIcon({ url: './assets/images/circleCurrent.svg' });
+
+    } else {
+
+      this.setIcon({ url: './assets/images/circle.svg' });
+
+    }
     
   }
 
   function mouseover () {
 
     this.overlayview.show();
-    
+    console.log(this);
+    if (this.title === current) {
+
+      this.setIcon({ url: './assets/images/circleCurrentLarge.svg' });
+
+    } else {
+
+      this.setIcon({ url: './assets/images/circle-large.svg' });
+
+    }
+    // this.setIcon({ url: './assets/images/circle-large.svg' });
   }
 
   function openWindow() {
