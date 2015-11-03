@@ -23,7 +23,7 @@ OverlayView.prototype.onAdd = function() {
 
 	var div = document.createElement('DIV');
 	div.style.position = "absolute";
-	div.style.visibility = "hidden";
+	// div.style.visibility = "hidden";
 	if (this.cssClass_)
 	    div.className += " " + this.cssClass_;
 	div.appendChild(this.content);

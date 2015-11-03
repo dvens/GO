@@ -148,7 +148,7 @@ function Maps() {
       this.setIcon({ url: './assets/images/circle-large.svg' });
 
     }
-    // this.setIcon({ url: './assets/images/circle-large.svg' });
+
   }
 
   function openWindow() {

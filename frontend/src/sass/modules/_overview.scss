@@ -1,4 +1,6 @@
 $fontSize: 12px;
+$radius: 10px 10px;
+$radiusLeft: 30px 30px;
 
 .color__overlay {
 
@@ -13,13 +15,11 @@ $fontSize: 12px;
 	  height: 100%;
 	  z-index: 0;
 	  background-color: rgba(217, 217, 217, 0.7);
-	  /*border-radius: 4px;*/
 	}
 
 }
 
 .overlayview {
-	/* + BorderShadow*/
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
 	width: 200px !important;
@@ -30,16 +30,12 @@ $fontSize: 12px;
 	-webkit-clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
 	clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
 	shape-outside: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
-	stroke-miterlimit: 10%;
-	stroke: black;
-	stroke-width: 3px;
-	   		/*<path fill="none" d="M21 18v18L3 27l18-9zm0-11.998C21 3.792 22.787 2 24.998 2h164.004C191.21 2 193 3.8 193 6.002v120.996c0 2.21-1.787 4.002-3.998 4.002H24.998C22.79 131 21 129.2 21 126.998V6.002z"/>*/
-
+	box-shadow: 4px 2px 4px rgba(0, 0, 0, 50);
 
 	/* For the color overlay */
 	* {
     	position: relative;
-    	font-family: "Avenir";
+    	font-family: $font-family-karla;
 	}	
 
 	.arrow__padding {
