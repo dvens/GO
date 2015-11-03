@@ -9,7 +9,8 @@ function Maps() {
 
   var _loader = new JSONLoader();
   var _map = new GeoMap('#map', config);
-  var current = 'Amsterdam';
+  var _current = 'Amsterdam';
+  var _overlayviews = [];
 
   _loader.load('./src/data/places.json', setMarkers);
 
@@ -21,7 +22,7 @@ function Maps() {
 
       function currentIcon() {
         // Change to currentLocation
-        if (marker.city === current) {
+        if (marker.city === _current) {
 
           return './assets/images/circleCurrent.svg';
 
@@ -33,12 +34,12 @@ function Maps() {
 
       }
 
-
       var _options = {
         position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
         icon: {
           url: currentIcon()
         },
+        audio: './assets/images/button.mp3',
         title: marker.city,
         weather: marker.weather,
         cost: marker['cost-of-living'],
@@ -51,40 +52,42 @@ function Maps() {
       var _marker = new GeoMarker(_options);
       _map.addMarker(_marker.element);
 
+
+      // ToDo: vervangen voor de json fileContent!
       // Content calc
-      var weatherCheck = parseFloat(marker.weather);
+      var _weatherCheck = parseFloat(marker.weather);
       function weatherIcon(marker) {
 
-        if ( weatherCheck <= 20 ) {
+        if ( _weatherCheck <= 20 ) {
 
             return '../assets/images/icons/ice.svg';
 
-        } else if ( weatherCheck >= 20 && weatherCheck < 25 ) {
+        } else if ( _weatherCheck >= 20 && _weatherCheck < 25 ) {
 
 
             return '../assets/images/icons/rain.svg';
 
 
-        } else if ( weatherCheck >= 25 && weatherCheck < 30 ) {
+        } else if ( _weatherCheck >= 25 && _weatherCheck < 30 ) {
 
             return '../assets/images/icons/cloud.svg';
 
           
-        } else if ( weatherCheck >= 30 ) {
+        } else if ( _weatherCheck >= 30 ) {
           
             return '../assets/images/icons/sun.svg';
 
         }
 
       }
-      var wifiCheck = parseFloat(marker.wifi);
+      var _wifiCheck = parseFloat(marker.wifi);
       function wifiIcon(marker) {
 
-        if ( wifiCheck < 20 ) {
+        if ( _wifiCheck < 20 ) {
 
             return '../assets/images/icons/wifi.svg';
 
-        } else if ( wifiCheck >= 20 ) {
+        } else if ( _wifiCheck >= 20 ) {
 
             return '../assets/images/icons/wifi-sm.svg';
         }
@@ -103,17 +106,28 @@ function Maps() {
       var content = document.importNode(overlayviewBoxTemp.content.querySelector('.overlayview'), true);
       content.style.background = 'url(' +  marker.img + ')';
 
+      // ContentSmall
+      var overlayviewBoxTempSmall = document.querySelector('.overlayviewTempSmall');
+      var overlayviewBoxSmall = overlayviewBoxTemp.content.querySelector('.overlayviewSmall');
+      overlayviewBoxTempSmall.content.querySelector('.title').innerHTML = marker.city;
+      // clone the contentBlock above
+      var contentSmall = document.importNode(overlayviewBoxTempSmall.content.querySelector('.overlayviewSmall'), true);
+
       // Overlayview options
       var _overlayviewoptions = {
         lat: parseFloat(marker.lat),
         lng: parseFloat(marker.lng),
         content: content,
+        contentSmall: contentSmall,
+        click: openInfobox,
+        hide: closeOverlay,
         marker: _marker.element,
         map: _map.map
       }
 
       var overlayview = new OverlayView(_overlayviewoptions);
 
+      _overlayviews.push(overlayview);
       _marker.setOverlayView(overlayview);
 
     });
@@ -124,7 +138,7 @@ function Maps() {
 
     this.overlayview.hide();
 
-    if (this.title === current) {
+    if (this.title === _current) {
 
       this.setIcon({ url: './assets/images/circleCurrent.svg' });
 
@@ -139,7 +153,8 @@ function Maps() {
   function mouseover () {
 
     this.overlayview.show();
-    if (this.title === current) {
+    
+    if (this.title === _current) {
 
       this.setIcon({ url: './assets/images/circleCurrentLarge.svg' });
 
@@ -153,9 +168,19 @@ function Maps() {
 
   function openWindow() {
 
-    var _content = '<section class"test">' + '<h1>' + this.title + '</h1>' + '<span>' + this.weather + '°C' + '</span>' + '<span>' + '€' + this.cost + '</span>' + '</section>';
+    this.overlayview.hideClick();
+    this.overlayview.click();
+
     var _lat = this.position.lat();
     var _lng = this.position.lng();
+
+    _map.panTo(_lat, _lng);
+
+  }
+
+  function openInfobox() {
+    
+    this.overlayview.hideClick();
 
     var data = {
       title: this.title,
@@ -164,7 +189,11 @@ function Maps() {
 
     Peach.render('.infobox-template', { data: data }, true);
 
-    _map.panTo(_lat, _lng);
+  }
+
+  function closeOverlay () {
+
+    this.overlayview.hideClick();
 
   }
 

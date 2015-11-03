@@ -1,0 +1,13 @@
+.chart {
+	height: 100%;
+	margin-top: 15px;
+	position: relative;
+	width: 100%;
+
+	span {
+		font-size: $font-size-xs;
+		left: 30px;
+		top: 26px;
+		position: absolute;
+	}
+}
