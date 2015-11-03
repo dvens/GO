@@ -13,7 +13,6 @@ $fontSize: 12px;
 	  height: 100%;
 	  z-index: 0;
 	  background-color: rgba(217, 217, 217, 0.7);
-	  /*border-radius: 4px;*/
 	}
 
 }
@@ -33,8 +32,6 @@ $fontSize: 12px;
 	stroke-miterlimit: 10%;
 	stroke: black;
 	stroke-width: 3px;
-	   		/*<path fill="none" d="M21 18v18L3 27l18-9zm0-11.998C21 3.792 22.787 2 24.998 2h164.004C191.21 2 193 3.8 193 6.002v120.996c0 2.21-1.787 4.002-3.998 4.002H24.998C22.79 131 21 129.2 21 126.998V6.002z"/>*/
-
 
 	/* For the color overlay */
 	* {
@@ -68,6 +65,11 @@ $fontSize: 12px;
 		}
 
 	}
+
+	.button--info {
+		background: $color-blue;
+		padding: 5px;
+	}	
 
 	.info {
 		z-index: 100;

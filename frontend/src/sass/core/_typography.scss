@@ -2,7 +2,7 @@ $font-family-open-sans: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-se
 $font-family-karla: 'Muli', sans-serif;
 
 html, body, button {
-	// -webkit-font-smoothing: antialiased; // http://www.intridea.com/blog/2014/5/8/better-font-smoothing-in-chrome-on-mac-os-x
+	-webkit-font-smoothing: subpixel-antialiased; // http://www.intridea.com/blog/2014/5/8/better-font-smoothing-in-chrome-on-mac-os-x
 	-moz-osx-font-smoothing: grayscale; // http://stackoverflow.com/questions/11459746/css3-/font-smoothing-and-antialiasing-in-firefox-and-opera
 }
 
@@ -35,8 +35,8 @@ h1, .-h1 {
 }
 
 h2, .-h2 {
-	font-size: $font-size-md;
-	font-weight: $font-weight-regular;
+	font-size: $font-size-sm;
+	font-weight: $font-weight-semibold;
 }
 
 h3, .-h3 {

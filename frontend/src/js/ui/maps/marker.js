@@ -1,9 +1,10 @@
 function GeoMarker(options) {
 
 	var _this = this;
-	var _audio = new Audio('./assets/images/button.mp3');
+	var _audio;
 
 	_options = options;
+	_audio = new Audio(_options.audio);
 	_this.overlayview;
 	_this.element = new google.maps.Marker(_options);
 

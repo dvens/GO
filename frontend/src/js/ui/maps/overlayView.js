@@ -1,6 +1,7 @@
 function OverlayView(options) {
 	
-	_overlayOptions = options;
+	var _overlayOptions = options;
+	var _marker;
 	
 	this.marker = _overlayOptions.marker;
 	this.content = _overlayOptions.content;
@@ -11,8 +12,16 @@ function OverlayView(options) {
 	this.bounds = new google.maps.LatLng(this.lat, this.lng);
 	this.div_ = null;
 	this.setMap(_overlayOptions.map);
+	this.button = this.content.querySelector('.button--info');
+	
+	_marker = this.marker;
 
-	var thisMarker = this.marker;
+	this.button.addEventListener('click', function() {
+		
+		_overlayOptions.click.apply(_marker);	
+
+	});
+
 	var _this = this;
 
 }
@@ -55,8 +64,8 @@ OverlayView.prototype.onRemove = function() {
 
 OverlayView.prototype.show = function() {
 
-	if (this.div_) {
-	    this.div_.style.visibility = "visible";
+	if (this.div_) {	
+	    this.div_.style.visibility = 'visible';
 	}
 
 };

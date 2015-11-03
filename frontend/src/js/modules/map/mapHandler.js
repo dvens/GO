@@ -9,7 +9,8 @@ function Maps() {
 
   var _loader = new JSONLoader();
   var _map = new GeoMap('#map', config);
-  var current = 'Amsterdam';
+  var _current = 'Amsterdam';
+  var _overlayviews = [];
 
   _loader.load('./src/data/places.json', setMarkers);
 
@@ -21,7 +22,7 @@ function Maps() {
 
       function currentIcon() {
         // Change to currentLocation
-        if (marker.city === current) {
+        if (marker.city === _current) {
 
           return './assets/images/circleCurrent.svg';
 
@@ -33,12 +34,12 @@ function Maps() {
 
       }
 
-
       var _options = {
         position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
         icon: {
           url: currentIcon()
         },
+        audio: './assets/images/button.mp3',
         title: marker.city,
         weather: marker.weather,
         cost: marker['cost-of-living'],
@@ -52,39 +53,39 @@ function Maps() {
       _map.addMarker(_marker.element);
 
       // Content calc
-      var weatherCheck = parseFloat(marker.weather);
+      var _weatherCheck = parseFloat(marker.weather);
       function weatherIcon(marker) {
 
-        if ( weatherCheck <= 20 ) {
+        if ( _weatherCheck <= 20 ) {
 
             return '../assets/images/icons/ice.svg';
 
-        } else if ( weatherCheck >= 20 && weatherCheck < 25 ) {
+        } else if ( _weatherCheck >= 20 && _weatherCheck < 25 ) {
 
 
             return '../assets/images/icons/rain.svg';
 
 
-        } else if ( weatherCheck >= 25 && weatherCheck < 30 ) {
+        } else if ( _weatherCheck >= 25 && _weatherCheck < 30 ) {
 
             return '../assets/images/icons/cloud.svg';
 
           
-        } else if ( weatherCheck >= 30 ) {
+        } else if ( _weatherCheck >= 30 ) {
           
             return '../assets/images/icons/sun.svg';
 
         }
 
       }
-      var wifiCheck = parseFloat(marker.wifi);
+      var _wifiCheck = parseFloat(marker.wifi);
       function wifiIcon(marker) {
 
-        if ( wifiCheck < 20 ) {
+        if ( _wifiCheck < 20 ) {
 
             return '../assets/images/icons/wifi.svg';
 
-        } else if ( wifiCheck >= 20 ) {
+        } else if ( _wifiCheck >= 20 ) {
 
             return '../assets/images/icons/wifi-sm.svg';
         }
@@ -108,11 +109,13 @@ function Maps() {
         lat: parseFloat(marker.lat),
         lng: parseFloat(marker.lng),
         content: content,
+        click: openInfobox,
         marker: _marker.element,
         map: _map.map
       }
 
       var overlayview = new OverlayView(_overlayviewoptions);
+      _overlayviews.push(overlayview);
 
       _marker.setOverlayView(overlayview);
 
@@ -122,9 +125,9 @@ function Maps() {
 
   function mouseout () {
 
-    this.overlayview.hide();
+   // this.overlayview.hide();
 
-    if (this.title === current) {
+    if (this.title === _current) {
 
       this.setIcon({ url: './assets/images/circleCurrent.svg' });
 
@@ -138,9 +141,9 @@ function Maps() {
 
   function mouseover () {
 
-    this.overlayview.show();
-    console.log(this);
-    if (this.title === current) {
+    //this.overlayview.show();
+    
+    if (this.title === _current) {
 
       this.setIcon({ url: './assets/images/circleCurrentLarge.svg' });
 
@@ -154,9 +157,22 @@ function Maps() {
 
   function openWindow() {
 
-    var _content = '<section class"test">' + '<h1>' + this.title + '</h1>' + '<span>' + this.weather + '°C' + '</span>' + '<span>' + '€' + this.cost + '</span>' + '</section>';
+    _overlayviews.forEach(function(overlay) {
+      overlay.hide();
+    });
+
+    this.overlayview.show();
+
     var _lat = this.position.lat();
     var _lng = this.position.lng();
+
+    _map.panTo(_lat, _lng);
+
+  }
+
+  function openInfobox() {
+    
+    this.overlayview.hide();
 
     var data = {
       title: this.title,
@@ -164,8 +180,6 @@ function Maps() {
     };
 
     Peach.render('.infobox-template', { data: data }, true);
-
-    _map.panTo(_lat, _lng);
 
   }
 
