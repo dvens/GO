@@ -621,7 +621,6 @@ function Maps() {
     
   }
 
-  // Co
   function zoomToPlace() {
 
     _storageBoxes.forEach(function(storagebox) {
@@ -648,7 +647,6 @@ function Maps() {
     });
 
   }
-
 
 }
 

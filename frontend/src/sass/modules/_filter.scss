@@ -38,10 +38,24 @@
 
 	.filter__button-holder {
 		
-		margin-top: 30px;
+		margin-top: 28px;
 
 		.button {
+			font-size: 12px;
 			padding: 10px;
+			position: relative;
+			
+			span {
+				background-color: $color-pink;
+				border-radius: 4px;
+				display: block;
+				font-size: 10px;
+				padding: 5px 8px;
+				top: -13px;
+				right: -13px;
+				position: absolute;
+			}
+
 		}
 
 	}
@@ -49,15 +63,35 @@
 	.filter__item-options {
 		
 		list-style: none;
+		position: relative;
 
 		li {
 			float: left;
+			height: 40px;
 			margin-left: 10px;
 			margin-bottom: 30px;
 			position: relative;
-			
-			&.active > .icon{
-				background-color: $color-yellow-dark;
+			width: 40px;
+
+			input {
+				bottom: 0; 
+				cursor: pointer;
+				filter: alpha(opacity=0);
+				height: 100%;
+				left: 0;
+				-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+				-moz-opacity: 0;
+				opacity: 0;
+				top: 0; 
+				position: absolute;
+				right: 0; 	
+				width: 100%;
+				z-index: 100;
+				
+				&:checked ~ label {
+					background-color: $color-yellow-dark;	
+				}
+
 			}
 
 			&:first-child {
