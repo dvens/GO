@@ -3,19 +3,21 @@
 	<div class="filter__holder">
 		
 		<div class="filter__button-holder">
-			<a class="button"> show all saved items </a>
+			<a class="button"> saved items <span>3</span></a>
 		</div>
 
 		<div class="filter__item">
 			<h2 class="-h4">wifi</h2>
 			
 			<ul class="filter__item-options">
-				<li class="active"> 
-					<span class="icon wifi"> @@include('./src/assets/images/icons/wifi.svg')</span>
+				<li> 
+					<input value="20" type="checkbox">
+					<label class="icon wifi"> @@include('./src/assets/images/icons/wifi.svg')</label>
 					<div class="filter__infobox">fast > 20 mbps</div>
 				</li>
 				<li>
-					<span class="icon wifi wifi--xs">@@include('./src/assets/images/icons/wifi-sm.svg')</span>
+					<input value="50" type="checkbox">
+					<label class="icon wifi wifi--xs">@@include('./src/assets/images/icons/wifi-sm.svg')</label>
 					<div class="filter__infobox">medium > 50 mbps</div>
 				</li>
 			</ul>
@@ -29,17 +31,20 @@
 			
 			<ul class="filter__item-options">
 				<li>
-					<span class="icon euro euro--xs">@@include('./src/assets/images/icons/euro-xs.svg')</span>
+					<input value="500" type="checkbox">
+					<label class="icon euro euro--xs">@@include('./src/assets/images/icons/euro-xs.svg')</label>
 					<div class="filter__infobox">&euro;500 tot &euro;1500</div>
 				</li>
 
 				<li>
-					<span class="icon euro euro--sm">@@include('./src/assets/images/icons/euro-sm.svg')</span>
+					<input value="1500" type="checkbox">
+					<label class="icon euro euro--sm">@@include('./src/assets/images/icons/euro-sm.svg')</label>
 					<div class="filter__infobox">&euro;1500 tot &euro;2000</div>
 				</li>
 
 				<li>
-					<span class="icon euro">@@include('./src/assets/images/icons/euro.svg')</span>
+					<input value="2000" type="checkbox">
+					<label class="icon euro">@@include('./src/assets/images/icons/euro.svg')</label>
 					<div class="filter__infobox">&euro;2000 tot &euro;2500</div>
 				</li>
 			</ul>
@@ -47,24 +52,28 @@
 		</div>
 
 		<div class="filter__item">
-			<h2 class="-h4">weather</h2>
+			<h2 class="-h4">climate</h2>
 			
 			<ul class="filter__item-options">
 				<li>
-					<span class="icon weather">@@include('./src/assets/images/icons/sun.svg')</span>
-					<div class="filter__infobox">Warm klimaat</div>
+					<input value="warm" type="checkbox">
+					<label class="icon weather">@@include('./src/assets/images/icons/sun.svg')</span>
+					<div class="filter__infobox">Warm climate</div>
 				</li>
 				<li class="icon weather">
-					<span class="icon weather">@@include('./src/assets/images/icons/rain.svg')</span>
-					<div class="filter__infobox">Regen klimaat</div>
+					<input value="rain" type="checkbox">
+					<label class="icon weather">@@include('./src/assets/images/icons/rain.svg')</label>
+					<div class="filter__infobox">Rain climate</div>
 				</li>
 				<li class="icon weather">
-					<span class="icon weather">@@include('./src/assets/images/icons/ice.svg')</span>
-					<div class="filter__infobox">Koud klimaat</div>
+					<input value="cold" type="checkbox">
+					<label class="icon weather">@@include('./src/assets/images/icons/ice.svg')</label>
+					<div class="filter__infobox">Cold climate</div>
 				</li>
 				<li class="icon weather">
-					<span class="icon weather">@@include('./src/assets/images/icons/cloud.svg')</span>
-					<div class="filter__infobox">Bewolkt klimaat</div>
+					<input value="cloudy" type="checkbox">
+					<label class="icon weather">@@include('./src/assets/images/icons/cloud.svg')</label>
+					<div class="filter__infobox">Cloudy climate</div>
 				</li>
 			</ul>
 
