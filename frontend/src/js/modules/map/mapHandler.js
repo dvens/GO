@@ -71,6 +71,7 @@ function Maps() {
         click: openWindow,
         mouseover: mouseover,
         mouseout: mouseout,
+        type: 'normal'
       };
 
       // add the marker
@@ -120,6 +121,60 @@ function Maps() {
       var smallOverlayview = new OverlayView(_overlayviewoptionsSmall);
       _marker.setSmallOverlayView(smallOverlayview);
 
+      var _coWork = marker['co-workingspaces'];
+
+      for ( i = 0; i < _coWork.length; i++ ) {
+
+          if ( _coWork[i].name != '' ) {
+
+              var _coOptions = {
+                position: { lat: parseFloat(_coWork[i].lat), lng: parseFloat(_coWork[i].lng) },
+                icon: {
+                  url: './assets/images/circle.svg'
+                },
+                type: 'co',
+                click: openWindow,
+                mouseover: mouseover,
+                mouseout: mouseout,
+              };
+
+              // add the marker
+              var _coMarker = new GeoMarker(_coOptions);
+              _map.addCoMarker(_coMarker.element);
+            
+              var _dataCoworking = {
+                name: _coWork[i].name,
+                distance: _coWork[i]['distance-airpot'],
+                cost: _coWork[i].cost,
+                visible: false,
+                lat: parseFloat(_coWork[i].lat),
+                lng: parseFloat(_coWork[i].lng)
+              }
+
+              var _templateCo = '.overlayviewTempCo';
+              var contentCo = Peach.render(_templateCo, { data: _dataCoworking }, 'render');
+
+              var _overlayviewoptionsCo = {
+                lat: parseFloat(_coWork[i].lat),
+                lng: parseFloat(_coWork[i].lng),
+                position: { lat: parseFloat(_coWork[i].lat), lng: parseFloat(_coWork[i].lng) },
+                content: contentCo,
+                templateType: _templateCo,
+                click: openInfobox,
+                hide: closeOverlay,
+                marker: _coMarker.element,
+                map: _map.map
+              }
+
+              var smallOverlayview = new OverlayView(_overlayviewoptionsSmall);
+              _marker.setSmallOverlayView(smallOverlayview);
+
+              var coOverlayview = new OverlayView(_overlayviewoptionsCo);
+              _coMarker.setCoOverlayView(coOverlayview);   
+
+          };
+      } 
+
       _overlayviews.push(overlayview);
 
     });
@@ -136,8 +191,18 @@ function Maps() {
   }
 
   function mouseout () {
+    
+    if ( this.type === 'normal' ) {
 
-    this.overlayview.hide();
+      this.overlayview.hide();
+
+    }
+
+    if ( this.type === 'co' ) {
+
+      this.coOverlayview.hide();
+      
+    }
 
     if (this.title === _current) {
 
@@ -148,12 +213,23 @@ function Maps() {
       this.setIcon({ url: './assets/images/circle.svg' });
 
     }
+
     
   }
 
   function mouseover () {
 
-    this.overlayview.show();
+    if ( this.type === 'normal' ) {
+
+      this.overlayview.show();
+
+    }
+
+    if ( this.type === 'co' ) {
+
+      this.coOverlayview.show();
+
+    }
 
     
     if (this.title === _current) {
@@ -173,10 +249,31 @@ function Maps() {
     _overlayviews.forEach(function(overlay) {
       
       overlay.hideClick();
+      if ( this.type === 'normal' ) {
+
+        overlay.hideClick();
+
+      }
+
+      if ( this.type === 'co' ) {
+
+        coOverlay.hideClick();
+
+      }
 
     });
 
-    this.overlayview.click();
+    if ( this.type === 'normal' ) {
+
+      this.overlayview.click();
+
+    }
+
+    if ( this.type === 'co' ) {
+
+      this.coOverlayview.click();
+
+    }
 
     var _lat = this.position.lat();
     var _lng = this.position.lng();
@@ -197,7 +294,17 @@ function Maps() {
 
     if( this.overlayview ) {
 
-      this.overlayview.hideClick();
+      if ( this.type === 'normal' ) {
+
+        this.overlayview.hideClick();
+
+      }
+
+      if ( this.type === 'co' ) {
+
+        this.coOverlayview.hideClick();
+
+      }
 
     }
     
@@ -225,7 +332,17 @@ function Maps() {
 
   function closeOverlay () {
 
-    this.overlayview.hideClick();
+    if ( this.type === 'normal' ) {
+
+      this.overlayview.hideClick();
+
+    }
+
+    if ( this.type === 'co' ) {
+
+      this.coOverlayview.hideClick();
+
+    }
 
   }
 
