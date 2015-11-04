@@ -57,10 +57,7 @@ OverlayView.prototype.onAdd = function() {
 
 	var panes = this.getPanes();
 	panes.floatPane.appendChild(this.div_);
-<<<<<<< HEAD
-=======
-	
->>>>>>> b3865071d93bf4dc576b4284e237fa228b255651
+
 };
 
 OverlayView.prototype.draw = function() {
@@ -83,34 +80,23 @@ OverlayView.prototype.draw = function() {
 
     	left = (ne.x - 17) + 'px';
      	top = (ne.y - 60) + 'px';
-<<<<<<< HEAD
 
-=======
->>>>>>> b3865071d93bf4dc576b4284e237fa228b255651
     }     
 
     var div = this.div_;
 
     div.style.left = left;
     div.style.top = top;
-<<<<<<< HEAD
-=======
-  
->>>>>>> b3865071d93bf4dc576b4284e237fa228b255651
+
 };
 
 OverlayView.prototype.click = function() {
 
 	if (this.div_) {	
 
-<<<<<<< HEAD
 	    this.marker.overlayview.div_.style.visibility = 'visible';
 		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
 	    
-=======
-	    this.div_.style.visibility = 'visible';
-
->>>>>>> b3865071d93bf4dc576b4284e237fa228b255651
 	}	
 
 };
@@ -130,16 +116,10 @@ OverlayView.prototype.show = function() {
 
 	if (this.div_) {	
 
-<<<<<<< HEAD
 	    this.marker.overlayview.div_.style.visibility = 'hidden';
 		this.marker.smallOverlayview.div_.style.visibility = 'visible';
 	    
 	}	
-=======
-	    //this.div_.style.visibility = 'visible';
-
-	}
->>>>>>> b3865071d93bf4dc576b4284e237fa228b255651
 
 };
 
@@ -147,12 +127,8 @@ OverlayView.prototype.hide = function() {
 
 	if (this.div_) {	
 
-<<<<<<< HEAD
 		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
 	
-=======
-	    //this.div_.style.visibility = "hidden";
->>>>>>> b3865071d93bf4dc576b4284e237fa228b255651
 	}
 
 };
