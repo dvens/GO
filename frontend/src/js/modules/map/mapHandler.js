@@ -111,10 +111,41 @@ function Maps() {
       // clone the contentBlock above
       var contentSmall = document.importNode(overlayviewBoxTempSmall.content.querySelector('.overlayviewSmall'), true);
 
+      var _coWorking = marker['co-workingspaces'];
+
+      for (i = 0; i < _coWorking.length; i++) { 
+
+        // console.log(_coWorking[i]);
+
+        // for ( i = 0; i < _coWorking[i].name; i++ ) {
+
+
+          // ContentCo
+          var overlayviewBoxTempCo = document.querySelector('.overlayviewTempCo');
+          var overlayviewBoxCo = overlayviewBoxTempCo.content.querySelector('.overlayviewCo');
+          overlayviewBoxTempCo.content.querySelector('.titleCo').innerHTML = _coWorking[i].name;
+          // clone the contentBlock above
+          var contentCo = document.importNode(overlayviewBoxTempCo.content.querySelector('.overlayviewCo'), true);
+
+          latCo = _coWorking[i].lat;
+          lngCo = _coWorking[i].lng;
+
+
+        // }
+
+      }
+
+      // console.log(contentCo);
+
+
       // Overlayview options
       var _overlayviewoptions = {
         lat: parseFloat(marker.lat),
         lng: parseFloat(marker.lng),
+        // latCo: latCo,
+        // lngCo: lngCo,
+        // contentCo: contentCo,
+        co: allCo,
         content: content,
         contentSmall: contentSmall,
         click: openInfobox,
@@ -167,7 +198,9 @@ function Maps() {
   function openWindow() {
 
     for (i = 0; i < _overlayviews.length; i++) { 
+
         _overlayviews[i].hideClick();
+
     }
 
     this.overlayview.click();

@@ -9,12 +9,21 @@ function OverlayView(options) {
 	this.map = _overlayOptions.marker;
 	this.cssClass = _overlayOptions.cssClass || null;
 	this.div_;
+	this.divSmall_;
+	this.divCo_;
 	this.lat = _overlayOptions.lat;
-	this.lng = _overlayOptions.lat;
+	this.lng = _overlayOptions.lng;
 	this.bounds = new google.maps.LatLng(this.lat, this.lng);
 	this.setMap(_overlayOptions.map);
 	this.button = this.content.querySelector('.button--info');	
 	this.cross = this.content.querySelector('.button--cross');	
+
+	// coWorking spaces
+	// this.contentCo = _overlayOptions.contentCo;
+	// this.latCo = _overlayOptions.latCo;
+	// this.lngCo = _overlayOptions.lngCo;
+	this.co = _overlayOptions.co;
+	// console.log(this.co)
 
 	_marker = this.marker;
 
@@ -51,9 +60,18 @@ OverlayView.prototype.onAdd = function() {
 	divSmall.appendChild(this.contentSmall);
 	this.divSmall_ = divSmall;
 
+	var divCo = document.createElement('DIV');
+	divCo.style.position = "absolute";
+	// divCo.style.visibility = "hidden";
+	divCo.style.zIndex = 300;
+	divCo.appendChild(this.contentCo);
+	this.divCo_ = divCo;
+
 	var panes = this.getPanes();
-	panes.floatPane.appendChild(this.divSmall_);
 	panes.floatPane.appendChild(this.div_);
+	panes.floatPane.appendChild(this.divSmall_);
+	panes.floatPane.appendChild(this.divCo_);
+	
 
 };
 
@@ -75,7 +93,16 @@ OverlayView.prototype.draw = function() {
     div.style.top = top;
     divSmall.style.left = leftSmall;
     divSmall.style.top = topSmall;
-
+    
+    var overlayProjectionCo = this.getProjection();
+    var latCo = this.latCo;
+    var lngCo = this.lngCo;
+    var neCo = overlayProjectionCo.fromLatLngToDivPixel(this.marker.getPosition());
+    var leftCo = (neCo.x + 10) + 'px';
+    var topCo = (neCo.y - 30) + 'px';
+    var divCo = this.divCo_;
+    divCo.style.left = leftCo;
+    divCo.style.top = topCo;
 };
 
 OverlayView.prototype.click = function() {
