@@ -84,6 +84,7 @@ OverlayView.prototype.click = function() {
 
 	    this.div_.style.visibility = 'visible';
 	    this.divSmall_.style.visibility = "hidden";
+
 	}	
 
 };
@@ -92,7 +93,6 @@ OverlayView.prototype.hideClick = function() {
 
 	if (this.div_) {	
 
-		// dit moet all div's worden
 	    this.div_.style.visibility = 'hidden';
 	    
 	}	

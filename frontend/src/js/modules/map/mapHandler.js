@@ -52,8 +52,6 @@ function Maps() {
       var _marker = new GeoMarker(_options);
       _map.addMarker(_marker.element);
 
-
-      // ToDo: vervangen voor de json fileContent!
       // Content calc
       var _weatherCheck = parseFloat(marker.weather);
       function weatherIcon(marker) {
@@ -168,7 +166,10 @@ function Maps() {
 
   function openWindow() {
 
-    this.overlayview.hideClick();
+    for (i = 0; i < _overlayviews.length; i++) { 
+        _overlayviews[i].hideClick();
+    }
+
     this.overlayview.click();
 
     var _lat = this.position.lat();
