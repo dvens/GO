@@ -1,7 +1,9 @@
 var GeoMap = require('./../../ui/maps/maps');
 var GeoMarker = require('./../../ui/maps/marker');
 var JSONLoader = require('./../../helpers/jsonLoader');
+var Utils = require('./../../helpers/utils');
 var OverlayView = require('./../../ui/maps/overlayView');
+var Infobox = require('./../../ui/maps/infobox');
 var Peach = require('./../../vendor/peach-min');
 var config = require('./config');
 
@@ -17,10 +19,15 @@ function Maps() {
   function setMarkers() {
 
     var _markers = this;
+    var _maxValues = {
+      apartment: Utils.getMax(this, 'apartment'),
+      airbnb: Utils.getMax(this, 'airbnb'),
+      hotel: Utils.getMax(this, 'hotel'),
+    };
 
     _markers.forEach(function(marker) {
 
-      function currentIcon() {
+      function currentCheck() {
         // Change to currentLocation
         if (marker.city === _current) {
 
@@ -37,15 +44,25 @@ function Maps() {
       var _options = {
         position: { lat: parseFloat(marker.lat), lng: parseFloat(marker.lng) },
         icon: {
-          url: currentIcon()
+          url: currentCheck()
         },
         audio: './assets/images/button.mp3',
         title: marker.city,
         weather: marker.weather,
+        climate: marker.climate,
+        wifi: marker.wifi,
+        currency: marker['kind-of-valuta'],
+        hotel: marker.hotel,
+        airbnb: marker.airbnb,
+        apartment: marker.apartment,
+        developers: marker.developers,
+        designers: marker.designers,
+        coworking: marker['co-workingspaces'],
+        infobox: new Infobox(_maxValues),
         cost: marker['cost-of-living'],
         click: openWindow,
         mouseover: mouseover,
-        mouseout: mouseout
+        mouseout: mouseout,
       };
 
       // add the marker
@@ -120,6 +137,16 @@ function Maps() {
       _marker.setOverlayView(overlayview);
 
     });
+    
+    // Search for current and load current
+    _map.markers.forEach(function(marker) {
+
+      if(marker.title === _current) {
+        openInfobox(marker);
+      }
+
+    });
+
   }
 
 
@@ -158,7 +185,9 @@ function Maps() {
   function openWindow() {
 
     _overlayviews.forEach(function(overlay) {
+      
       overlay.hide();
+
     });
 
     this.overlayview.show();
@@ -170,16 +199,33 @@ function Maps() {
 
   }
 
-  function openInfobox() {
+  function openInfobox(marker) {
     
-    this.overlayview.hide();
+    var _this = this;
+    var _tmpl = '.infobox-template';
 
+    if(marker) {
+      _this = marker;
+      _tmpl = '.infobox-template-current';
+    }
+
+    _this.overlayview.hide();  
+    
     var data = {
-      title: this.title,
-      weather: this.weather
+      title: _this.title,
+      weather: _this.weather,
+      wifi: _this.wifi,
+      climate: _this.climate,
+      currency: _this.currency,
+      airbnb: _this.airbnb,
+      hotel: _this.hotel,
+      apartment: _this.apartment,
+      developers: _this.developers,
+      designers: _this.designers,
+      coworking: _this.coworking
     };
 
-    Peach.render('.infobox-template', { data: data }, true);
+    _this.infobox.render(_tmpl, data);
 
   }
 

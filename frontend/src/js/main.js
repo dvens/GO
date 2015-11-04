@@ -1,5 +1,4 @@
 var MapHandler = require('./modules/map/mapHandler');
-var InfoboxHandler = require('./modules/infobox/infoboxHandler');
 
 var main = new Main();
 main.init();

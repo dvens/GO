@@ -6,12 +6,14 @@ function RangeSlider(el) {
 	_this.currentValue;
 	_this.beginValue;
 	_this.endValue;
+	_this.currency;
 
 	_this.init();
 }
 
 RangeSlider.prototype.init = function() {
 	this.range = this.element.querySelector('input[type="range"]');
+	this.currency = this.element.getAttribute('data-currency');
 	this.currentValue = this.range.value;
 	this.beginValue = this.element.querySelector('.begin-value');
 	this.endValue = this.element.querySelector('.end-value');
@@ -35,11 +37,23 @@ RangeSlider.prototype.initEvents = function() {
 
 RangeSlider.prototype.setValues = function(value) {
 
-	var _diff = 132.67;
+	var _diff
+
+	if ( this.currency == 'euro' || 'dollar' ) {
+		
+		_diff = 1.10;
+
+	} 
+
+	if ( this.currency == 'yen' ) {
+		
+		_diff = 132.67;
+
+	}
+
+	
 	var _value = value;
 	
-	console.log('setValues', this.beginValue.innerHTML);
-
 	this.beginValue.innerHTML = _value + ',-';
 	this.endValue.innerHTML = Math.round( (_value * _diff) * 100) / 100 + ',-';
 }

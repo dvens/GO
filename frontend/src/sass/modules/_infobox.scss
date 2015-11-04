@@ -17,6 +17,11 @@
 		height: 100%;
 		overflow: scroll;
 		padding: 15px 20px;
+		
+		&[class*="--cross"] {
+			padding: 33px 20px 70px 20px;
+		}
+
 	}
 
 	&:nth-child(2) {
@@ -33,6 +38,7 @@
 		border-bottom: 2px solid $color-yellow-dark;
 		margin-bottom: 20px;
 		padding-bottom: 20px;
+		position: relative;
 
 		&:first-child {
 			border: none;
@@ -148,6 +154,11 @@
     		top: 4px;
     		right: 5px;
     		z-index: 3;
+
+    		&.sm {
+				width: 50px;
+				left: 10px;
+			}
 		}
 
 	}
@@ -177,4 +188,11 @@
 				color: $color-pink;
 			}
 		}
+	}
+
+	.infobox__close {
+		cursor: pointer;
+		right: -6px;
+    	top: -21px;
+		position: absolute;
 	}
