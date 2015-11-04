@@ -8,6 +8,8 @@ function GeoMarker(options) {
 	_this.overlayview;
 	_this.element = new google.maps.Marker(_options);
 
+	var _coWorking = _options.coWorking;
+
 	_this.element.addListener('click', function() {
 
 		if( _options.click ) {

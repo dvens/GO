@@ -69,71 +69,27 @@ function Maps() {
       var _marker = new GeoMarker(_options);
       _map.addMarker(_marker.element);
 
-      // Content calc
-      var _weatherCheck = parseFloat(marker.weather);
-      function weatherIcon(marker) {
-
-        if ( _weatherCheck <= 20 ) {
-
-            return '../assets/images/icons/ice.svg';
-
-        } else if ( _weatherCheck >= 20 && _weatherCheck < 25 ) {
-
-
-            return '../assets/images/icons/rain.svg';
-
-
-        } else if ( _weatherCheck >= 25 && _weatherCheck < 30 ) {
-
-            return '../assets/images/icons/cloud.svg';
-
-          
-        } else if ( _weatherCheck >= 30 ) {
-          
-            return '../assets/images/icons/sun.svg';
-
-        }
-
-      }
-      var _wifiCheck = parseFloat(marker.wifi);
-      function wifiIcon(marker) {
-
-        if ( _wifiCheck < 20 ) {
-
-            return '../assets/images/icons/wifi.svg';
-
-        } else if ( _wifiCheck >= 20 ) {
-
-            return '../assets/images/icons/wifi-sm.svg';
-        }
-
+      var _dataOverlayView = {
+        title: marker.city,
+        cost: marker['cost-of-living'],
+        weather: marker.weather,
+        wifi: marker.wifi,
+        img: marker.img,
+        climate: marker.climate
       }
 
-      // Content
-      var overlayviewBoxTemp = document.querySelector('.overlayviewTemp');
-      var overlayviewBox = overlayviewBoxTemp.content.querySelector('.overlayview');
-      overlayviewBoxTemp.content.querySelector('.title').innerHTML = marker.city;
-      overlayviewBoxTemp.content.querySelector('.cost').innerHTML = marker['cost-of-living'];
-      overlayviewBoxTemp.content.querySelector('.weather').src = weatherIcon();
-      overlayviewBoxTemp.content.querySelector('.wifi__icon').src = wifiIcon();
-      overlayviewBoxTemp.content.querySelector('.wifi').innerHTML = marker.wifi;
-      // clone the contentBlock above
-      var content = document.importNode(overlayviewBoxTemp.content.querySelector('.overlayview'), true);
-      content.style.background = 'url(' +  marker.img + ')';
+      var _template = '.overlayviewTemp';
+      var content = Peach.render(_template, { data: _dataOverlayView }, 'render');
 
-      // ContentSmall
-      var overlayviewBoxTempSmall = document.querySelector('.overlayviewTempSmall');
-      var overlayviewBoxSmall = overlayviewBoxTemp.content.querySelector('.overlayviewSmall');
-      overlayviewBoxTempSmall.content.querySelector('.title').innerHTML = marker.city;
-      // clone the contentBlock above
-      var contentSmall = document.importNode(overlayviewBoxTempSmall.content.querySelector('.overlayviewSmall'), true);
+      var _template = '.overlayviewTempSmall';
+      var content = Peach.render(_template, { data: _dataOverlayView }, 'render');
 
       // Overlayview options
       var _overlayviewoptions = {
         lat: parseFloat(marker.lat),
         lng: parseFloat(marker.lng),
         content: content,
-        contentSmall: contentSmall,
+        templateType: _template,
         click: openInfobox,
         hide: closeOverlay,
         marker: _marker.element,
@@ -194,7 +150,9 @@ function Maps() {
   function openWindow() {
 
     for (i = 0; i < _overlayviews.length; i++) { 
+
         _overlayviews[i].hideClick();
+
     }
 
     this.overlayview.click();
@@ -217,7 +175,9 @@ function Maps() {
     } 
 
     if( this.overlayview ) {
+
       this.overlayview.hideClick();
+
     }
     
     var _data = {
