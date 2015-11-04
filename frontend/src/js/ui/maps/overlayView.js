@@ -3,9 +3,9 @@ function OverlayView(options) {
 	var _this = this;
 	
 	_this.overlayOptions = options;
+
 	this.marker = _this.overlayOptions.marker;
 	this.content = _this.overlayOptions.content;
-	this.contentSmall = _this.overlayOptions.contentSmall;
 	this.map = _this.overlayOptions.marker;
 	this.cssClass = _this.overlayOptions.cssClass || null;
 	this.div_;
@@ -17,7 +17,6 @@ function OverlayView(options) {
 	this.setMap(_this.overlayOptions.map);
 	this.button;
 	this.cross;	
-
 }
 
 OverlayView.prototype = new google.maps.OverlayView();
@@ -65,12 +64,13 @@ OverlayView.prototype.draw = function() {
     var overlayProjection = this.getProjection();
     var lat = this.lat;
     var lng = this.lng;
-    var ne = overlayProjection.fromLatLngToDivPixel(this.marker.getPosition());
+    var ne;
     var left;
     var top;
     
     if( this.overlayOptions.templateType === '.overlayviewTemp' ) {
 
+    	ne = overlayProjection.fromLatLngToDivPixel(this.marker.getPosition());
     	left = (ne.x + 10) + 'px';
      	top = (ne.y - 30) + 'px';
 
@@ -78,10 +78,27 @@ OverlayView.prototype.draw = function() {
 
 	if( this.overlayOptions.templateType === '.overlayviewTempSmall' ) {
 
+		ne = overlayProjection.fromLatLngToDivPixel(this.marker.getPosition());
     	left = (ne.x - 17) + 'px';
      	top = (ne.y - 60) + 'px';
 
-    }     
+    }
+
+    if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+
+		var bounds = new google.maps.LatLngBounds(
+		      new google.maps.LatLng(lat, lng),
+		      new google.maps.LatLng(lat, lng));
+
+		this._bounds = bounds;
+
+		var sw = overlayProjection.fromLatLngToDivPixel(this._bounds.getSouthWest());
+		var ne = overlayProjection.fromLatLngToDivPixel(this._bounds.getNorthEast());
+
+		left = (sw.x + 10) + 'px';
+		top = (ne.y -20) + 'px';
+
+    }
 
     var div = this.div_;
 
@@ -92,44 +109,84 @@ OverlayView.prototype.draw = function() {
 
 OverlayView.prototype.click = function() {
 
-	if (this.div_) {	
+	// if (this.div_) {	
 
-	    this.marker.overlayview.div_.style.visibility = 'visible';
-		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+		if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+
+		    this.marker.overlayview.div_.style.visibility = 'visible';
+			this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+
+		}
+		
+		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+
+			this.marker.coOverlayview.div_.style.visibility = 'visible';
+
+		};
 	    
-	}	
+	// }	
 
 };
 
 OverlayView.prototype.hideClick = function() {
 
-	if (this.div_) {	
+	// if (this.div_) {	
 
-	    this.marker.overlayview.div_.style.visibility = 'hidden';
-		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+		if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+
+		    this.marker.overlayview.div_.style.visibility = 'hidden';
+			this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+
+		}
+
+		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+
+			this.marker.coOverlayview.div_.style.visibility = 'hidden';
+
+		};
 		    
-	}	
+	// }	
 
 };
 
 OverlayView.prototype.show = function() {
 
-	if (this.div_) {	
+	// if (this.div_) {	
 
-	    this.marker.overlayview.div_.style.visibility = 'hidden';
-		this.marker.smallOverlayview.div_.style.visibility = 'visible';
+	    if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+
+    	    this.marker.overlayview.div_.style.visibility = 'hidden';
+    		this.marker.smallOverlayview.div_.style.visibility = 'visible';
+
+	    }
+
+		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+
+			this.marker.coOverlayview.div_.style.visibility = 'visible';
+
+		};
 	    
-	}	
+	// }	
 
 };
 
 OverlayView.prototype.hide = function() {
 
-	if (this.div_) {	
+	// if (this.div_) {	
 
-		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+		if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+
+			this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+
+		}
+		
+		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+
+			this.marker.coOverlayview.div_.style.visibility = 'hidden';
+
+		};
 	
-	}
+	// }
 
 };
 

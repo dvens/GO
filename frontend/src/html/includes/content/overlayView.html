@@ -41,6 +41,20 @@
 
 <template class="overlayviewTempCo">
 	<section class="overlayviewCo">
-		<h1 class="titleCo"></h1>
+		<div class="header">
+			<span class="button--cross"> <img src="../assets/images/icons/cross.svg" alt=""> </span>
+			<h1 class="title"> {{ data.name }} </h1>
+		</div>
+		<div class="content">
+			<p class="km"><img src="../assets/images/circleCurrentLarge.svg" class="center__icon"> {{ data.distance }} p.d.</p>
+			<p class="pd"><img src="../assets/images/icons/euro-sm.svg" class="euro__icon"> {{ data.cost }} km</p>
+		</div>
 	</section>	
 </template>
+
+
+
+
+
+
+

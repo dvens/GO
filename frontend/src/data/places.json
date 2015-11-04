@@ -770,7 +770,9 @@
                 "name": "Copenhagen Coffee Lab Lisboa",
                 "cost": "8",
                 "address": "R. Noca de Pledade",
-                "distance-airpot": "1.4"
+                "distance-airpot": "1.4",
+                "lat": "38.715021",
+                "lng": "-9.151894"
             },
             {
                 "name": "Café Tati",
