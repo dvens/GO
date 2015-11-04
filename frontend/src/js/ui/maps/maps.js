@@ -5,6 +5,8 @@ function GeoMap(id, options) {
 	var _this = this;
 	var _element = document.querySelector(id);
 	var _value;
+	var _zoomPlus;
+	var _zoomMin;
 
 	var _defaults = {
 		key: null
@@ -17,6 +19,21 @@ function GeoMap(id, options) {
 	_this.controls = [];
 	_this.map = new google.maps.Map(_element, _options);
 	_this.zoom = _options.zoom;
+
+	_zoomPlus = document.querySelector('.control__zoom-in');
+	_zoomMin = document.querySelector('.control__zoom-out');
+
+	_zoomPlus.addEventListener('click', function() {
+
+		_this.zoomIn(1);
+
+	});
+
+	_zoomMin.addEventListener('click', function() {
+
+		_this.zoomOut(1);
+
+	});
 
 	_this.map.addListener('center_changed', function() {
       

@@ -1,21 +1,29 @@
 .control {
 	position: fixed;
-	bottom: 80px;
-	left: 56px;
+	bottom: 40px;
+	left: 20px;
 	z-index: 999;
+	border-radius: 4px;
+	padding: 3px;
 
 	.control__zoom-in {
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
 
 		img {
 			width: 35px;
+			height: 35px;
 		}
 
 	}
 	.control__zoom-out {
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
 	
 		img {
 			width: 20px;
 			height: 35px;
+			border-top: 2px solid #E0BA08;
 		}
 
 	}
@@ -25,8 +33,25 @@
 		width: 40px;
 		height: 40px;
 		margin: 0 auto;
+		border: 0px solid #fff;
+		background-color: #FFD301;
+
+		&:focus {
+			outline: 0px;
+		}
+		&:active {
+			outline: 0px;
+			box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,0.75);
+		}
+
+		&:hover {
+			img {
+				opacity: 1;
+			}
+		}
 
 		img {
+			opacity: 0.5;
 			vertical-align: middle;
 			margin: 0 auto;
 		}
