@@ -238,32 +238,118 @@ function Maps() {
         var _buttons = [].slice.call(storagebox.querySelectorAll('.infobox__bar'));
         var _boxkey = key;
         var _storageBox = storagebox;
-        
-        var _slider = _storageBox.querySelector('.infobox__slider');
-        var _span = _storageBox.querySelector('span');
 
         _buttons.forEach(function(button, key) {
 
           button.addEventListener('mouseover', function() {
 
+            var _span = this.querySelector('span');
             var _class = this.classList;
+            var _percent = _span.style.width;
+            var _value = this.getAttribute('data-cost');
 
             if(_boxkey == 0) {
 
               var element = _class[1];
-              moveSlider(element, 1);
+
+              if(_storageBoxes.length == 3) {
+                
+                moveSlider(element, _value, _percent, 1, 2);  
+
+              } else {
+                
+                moveSlider(element, _value, _percent, 1);
+
+              }
 
             }
 
             if(_boxkey == 1) {
 
-              console.log('boxkey is 1');
+              var element = _class[1];
+
+              if(_storageBoxes.length == 3) {
+                
+                moveSlider(element, _value, _percent, 0, 2);  
+
+              } else {
+                
+                moveSlider(element, _value, _percent, 0);
+
+              }
 
             }
 
             if(_boxkey == 2) {
 
-              console.log('boxkey is 2');
+              var element = _class[1];
+
+              if(_storageBoxes.length == 3) {
+                
+                moveSlider(element, _value, _percent, 0, 1);  
+
+              } else {
+                
+                moveSlider(element, _value, _percent, 1);
+
+              }
+
+            }
+
+          });
+
+          button.addEventListener('mouseout', function() {
+
+            var _span = this.querySelector('span');
+            var _class = this.classList;
+            var _percent = _span.style.width;
+            var _value = this.getAttribute('data-cost');
+
+            if(_boxkey == 0) {
+
+              var element = _class[1];
+
+              if(_storageBoxes.length == 3) {
+                
+                resetSlider(element, _value, _percent, 1, 2);  
+
+              } else {
+                
+                resetSlider(element, _value, _percent, 1);
+
+              }
+
+            }
+
+            if(_boxkey == 1) {
+
+              var element = _class[1];
+
+              if(_storageBoxes.length == 3) {
+                
+                resetSlider(element, _value, _percent, 0, 2);  
+
+              } else {
+                
+                resetSlider(element, _value, _percent, 0);
+
+              }
+
+            }
+
+            if(_boxkey == 2) {
+
+              var element = _class[1];
+
+              if(_storageBoxes.length == 3) {
+                
+                resetSlider(element, _value, _percent, 0, 1);  
+
+              } else {
+                
+                resetSlider(element, _value, _percent, 1);
+
+              }
 
             }
 
@@ -271,34 +357,150 @@ function Maps() {
 
         });
 
-
       });  
-
-      // var _slider = this.querySelector('.infobox__slider');
-      // var _span = this.querySelector('span');
-      
-      // _slider.classList.add('active');
-      // _slider.style.left = _span.style.width;
 
     }
     
   }
 
-  function moveSlider(element, key1, key2) {
+  function moveSlider(element, value, percent, key1, key2) {
 
     var _firstEl;
+    var _firstSlider;
+    var _secondEl;
+    var _secondSlider;
+    var _percent = percent;
+    var _value = value;
     
-    // if( element == 'hotel' ) {
-      _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.hotel');
-    //}
-    
-    console.log(_firstEl); 
+    if( key2 ) {
 
-    //var _firstSecond = _storageBoxes[key2].querySelector('.infobox__slider');
+      if( element == 'hotel' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.hotel');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+
+        _secondEl = _storageBoxes[key2].querySelector('.infobox__bar.hotel');
+        _secondSlider = _secondEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'airbnb' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.airbnb');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+
+        _secondEl = _storageBoxes[key2].querySelector('.infobox__bar.airbnb');
+        _secondSlider = _secondEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'apartment' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.apartment');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+
+        _secondEl = _storageBoxes[key2].querySelector('.infobox__bar.apartment');
+        _secondSlider = _secondEl.querySelector('.infobox__slider');
+      }
+      
+      _firstSlider.classList.add('active');
+      _firstSlider.style.left = _percent;
+      _firstSlider.innerHTML = '<p>' + _value + '</p>';
+
+      _secondSlider.classList.add('active');
+      _secondSlider.style.left = _percent;
+      _secondSlider.innerHTML = '<p>' + _value + '</p>';
+
+
+    } else {
+
+      if( element == 'hotel' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.hotel');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'airbnb' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.airbnb');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'apartment' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.apartment');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+      }
+      
+      _firstSlider.classList.add('active');
+      _firstSlider.style.left = _percent;
+      _firstSlider.innerHTML = '<p>' + _value + '</p>';
+
+    }
+    
+  }
+
+  function resetSlider(element, value, percent, key1, key2) {
+
+    var _firstEl;
+    var _firstSlider;
+    var _secondEl;
+    var _secondSlider;
+    var _percent = 0;
+    var _value = value;
+    
+    if( key2 ) {
+
+      if( element == 'hotel' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.hotel');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+
+        _secondEl = _storageBoxes[key2].querySelector('.infobox__bar.hotel');
+        _secondSlider = _secondEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'airbnb' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.airbnb');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+
+        _secondEl = _storageBoxes[key2].querySelector('.infobox__bar.airbnb');
+        _secondSlider = _secondEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'apartment' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.apartment');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+
+        _secondEl = _storageBoxes[key2].querySelector('.infobox__bar.apartment');
+        _secondSlider = _secondEl.querySelector('.infobox__slider');
+      }
+      
+      _firstSlider.classList.remove('active');
+      _firstSlider.style.left = _percent;
+      _firstSlider.innerHTML = '<p>' + _value + '</p>';
+
+      _secondSlider.classList.remove('active');
+      _secondSlider.style.left = _percent;
+      _secondSlider.innerHTML = '<p>' + _value + '</p>';
+
+
+    } else {
+
+      if( element == 'hotel' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.hotel');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'airbnb' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.airbnb');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+      }
+
+      if( element == 'apartment' ) {
+        _firstEl = _storageBoxes[key1].querySelector('.infobox__bar.apartment');
+        _firstSlider = _firstEl.querySelector('.infobox__slider');
+      }
+      
+      _firstSlider.classList.remove('active');
+      _firstSlider.style.left = _percent;
+      _firstSlider.innerHTML = '<p>' + _value + '</p>';
+
+    }
+    
   }
 
 }
-
-
 
 module.exports = Maps;
