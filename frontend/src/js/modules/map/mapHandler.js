@@ -81,9 +81,6 @@ function Maps() {
       var _template = '.overlayviewTemp';
       var content = Peach.render(_template, { data: _dataOverlayView }, 'render');
 
-      var _template = '.overlayviewTempSmall';
-      var content = Peach.render(_template, { data: _dataOverlayView }, 'render');
-
       // Overlayview options
       var _overlayviewoptions = {
         lat: parseFloat(marker.lat),
@@ -149,11 +146,11 @@ function Maps() {
 
   function openWindow() {
 
-    for (i = 0; i < _overlayviews.length; i++) { 
+    _overlayviews.forEach(function(overlay) {
+      
+      overlay.hideClick();
 
-        _overlayviews[i].hideClick();
-
-    }
+    });
 
     this.overlayview.click();
 

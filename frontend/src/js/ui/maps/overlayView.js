@@ -3,7 +3,6 @@ function OverlayView(options) {
 	var _this = this;
 	
 	_this.overlayOptions = options;
-
 	this.marker = _this.overlayOptions.marker;
 	this.content = _this.overlayOptions.content;
 	this.contentSmall = _this.overlayOptions.contentSmall;
@@ -41,7 +40,6 @@ OverlayView.prototype.onAdd = function() {
 		this.button.addEventListener('click', function() {
 			
 			_this.overlayOptions.click.apply(_this.marker);	
-			console.log('click');
 
 		});
 
@@ -51,33 +49,15 @@ OverlayView.prototype.onAdd = function() {
 
 		this.cross.addEventListener('click', function() {
 
-			console.log('close');
 			_this.overlayOptions.hide.apply(_this.marker);
 
 		});
 
 	}
 
-	// var divSmall = document.createElement('DIV');
-	// divSmall.style.position = "absolute";
-	// divSmall.style.visibility = "hidden";
-	// divSmall.style.zIndex = 999;
-	// // divSmall.appendChild(this.contentSmall);
-	// this.divSmall_ = divSmall;
-
-	// var divCo = document.createElement('DIV');
-	// divCo.style.position = "absolute";
-	// // divCo.style.visibility = "hidden";
-	// divCo.style.zIndex = 300;
-	// divCo.appendChild(this.contentCo);
-	// this.divCo_ = divCo;
-
 	var panes = this.getPanes();
 	panes.floatPane.appendChild(this.div_);
-	// panes.floatPane.appendChild(this.divSmall_);
-	// // panes.floatPane.appendChild(this.divCo_);
 	
-
 };
 
 OverlayView.prototype.draw = function() {
@@ -99,28 +79,11 @@ OverlayView.prototype.draw = function() {
      	top = (ne.y - 60) + 'px';
     }     
 
-
-
-    // var leftSmall = (ne.x - 17) + 'px';
-    // var topSmall = (ne.y - 60) + 'px';
-
     var div = this.div_;
-    // var divSmall = this.divSmall_;
 
     div.style.left = left;
     div.style.top = top;
-    // divSmall.style.left = leftSmall;
-    // divSmall.style.top = topSmall;
-    
-    // var overlayProjectionCo = this.getProjection();
-    // var latCo = this.latCo;
-    // var lngCo = this.lngCo;
-    // var neCo = overlayProjectionCo.fromLatLngToDivPixel(this.marker.getPosition());
-    // var leftCo = (neCo.x + 10) + 'px';
-    // var topCo = (neCo.y - 30) + 'px';
-    // var divCo = this.divCo_;
-    // divCo.style.left = leftCo;
-    // divCo.style.top = topCo;
+  
 };
 
 OverlayView.prototype.click = function() {
@@ -128,7 +91,6 @@ OverlayView.prototype.click = function() {
 	if (this.div_) {	
 
 	    this.div_.style.visibility = 'visible';
-	    // this.divSmall_.style.visibility = "hidden";
 
 	}	
 
@@ -148,8 +110,8 @@ OverlayView.prototype.show = function() {
 
 	if (this.div_) {	
 
-	    this.div_.style.visibility = 'visible';
-	    // this.divSmall_.style.visibility = 'visible';
+	    //this.div_.style.visibility = 'visible';
+
 	}
 
 };
@@ -158,7 +120,7 @@ OverlayView.prototype.hide = function() {
 
 	if (this.div_) {
 
-	    this.div_.style.visibility = "hidden";
+	    //this.div_.style.visibility = "hidden";
 	}
 
 };
