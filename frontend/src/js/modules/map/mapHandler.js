@@ -220,7 +220,7 @@ function Maps() {
       this.overlayview.hideClick();
     }
     
-    var data = {
+    var _data = {
       title: _this.title,
       weather: _this.weather,
       wifi: _this.wifi,
@@ -234,7 +234,7 @@ function Maps() {
       coworking: _this.coworking
     };
 
-    _this.infobox.render(_tmpl, data);
+    _this.infobox.render(_tmpl, _data);
 
   }
 
