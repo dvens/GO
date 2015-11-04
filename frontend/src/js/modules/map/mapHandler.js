@@ -138,6 +138,7 @@ function Maps() {
                 name: _coWork[i].name,
                 distance: _coWork[i]['distance-airpot'],
                 cost: _coWork[i].cost,
+                visible: false,
                 lat: parseFloat(_coWork[i].lat),
                 lng: parseFloat(_coWork[i].lng)
               }

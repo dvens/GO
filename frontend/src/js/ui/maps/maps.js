@@ -24,6 +24,18 @@ function GeoMap(id, options) {
 
     });
 
+    _this.map.addListener('zoom_changed', function() {
+
+    	_this.checkZoom();
+
+    });
+
+    _this.map.addListener('idle', function(){
+    	
+    	_this.checkZoom();
+
+    });
+
 	function checkBounds() {
 
 	  var mapBounds = _this.map.getBounds();
@@ -107,6 +119,31 @@ function GeoMap(id, options) {
 	_this.panTo = function(lat, lng) {
 		
 		this.map.panTo(new google.maps.LatLng(lat, lng));
+
+	}
+
+	_this.checkZoom = function() {
+		
+		var _coMarker = _this.coMarkers;
+		var _zoom = _this.map.getZoom();
+
+		if ( _zoom >= 13 ) {
+
+			for ( i = 0; i < _coMarker.length; i ++ ) {
+
+				_coMarker[i].setVisible(true);
+
+			}
+
+		} else {
+
+			for ( i = 0; i < _coMarker.length; i ++ ) {
+
+				_coMarker[i].setVisible(false);
+
+			}
+
+		}
 
 	}
 

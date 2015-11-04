@@ -109,84 +109,68 @@ OverlayView.prototype.draw = function() {
 
 OverlayView.prototype.click = function() {
 
-	// if (this.div_) {	
+	if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
 
-		if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+	    this.marker.overlayview.div_.style.visibility = 'visible';
+		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
 
-		    this.marker.overlayview.div_.style.visibility = 'visible';
-			this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+	}
+	
+	if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
 
-		}
-		
-		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+		this.marker.coOverlayview.div_.style.visibility = 'visible';
 
-			this.marker.coOverlayview.div_.style.visibility = 'visible';
-
-		};
-	    
-	// }	
+	};
 
 };
 
 OverlayView.prototype.hideClick = function() {
 
-	// if (this.div_) {	
+	if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
 
-		if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+	    this.marker.overlayview.div_.style.visibility = 'hidden';
+		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
 
-		    this.marker.overlayview.div_.style.visibility = 'hidden';
-			this.marker.smallOverlayview.div_.style.visibility = 'hidden';
+	}
 
-		}
+	if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
 
-		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+		this.marker.coOverlayview.div_.style.visibility = 'hidden';
 
-			this.marker.coOverlayview.div_.style.visibility = 'hidden';
-
-		};
-		    
-	// }	
+	};
 
 };
 
 OverlayView.prototype.show = function() {
 
-	// if (this.div_) {	
+    if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
 
-	    if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+	    this.marker.overlayview.div_.style.visibility = 'hidden';
+		this.marker.smallOverlayview.div_.style.visibility = 'visible';
 
-    	    this.marker.overlayview.div_.style.visibility = 'hidden';
-    		this.marker.smallOverlayview.div_.style.visibility = 'visible';
+    }
 
-	    }
+	if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
 
-		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+		this.marker.coOverlayview.div_.style.visibility = 'visible';
 
-			this.marker.coOverlayview.div_.style.visibility = 'visible';
-
-		};
-	    
-	// }	
+	};
 
 };
 
 OverlayView.prototype.hide = function() {
 
-	// if (this.div_) {	
+	if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
 
-		if( this.overlayOptions.templateType != '.overlayviewTempCo' ) {
+		this.marker.smallOverlayview.div_.style.visibility = 'hidden';
 
-			this.marker.smallOverlayview.div_.style.visibility = 'hidden';
-
-		}
-		
-		if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
-
-			this.marker.coOverlayview.div_.style.visibility = 'hidden';
-
-		};
+	}
 	
-	// }
+	if( this.overlayOptions.templateType === '.overlayviewTempCo' ) {
+
+		this.marker.coOverlayview.div_.style.visibility = 'hidden';
+
+	};
 
 };
 
