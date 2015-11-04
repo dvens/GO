@@ -84,7 +84,6 @@ function Maps() {
       var _templateSmall = '.overlayviewTempSmall';
       var contentSmall = Peach.render(_templateSmall, { data: _dataOverlayView.title }, 'render');
 
-      // Overlayview options
       var _overlayviewoptions = {
         lat: parseFloat(marker.lat),
         lng: parseFloat(marker.lng),
@@ -164,11 +163,11 @@ function Maps() {
 
   function openWindow() {
 
-    for (i = 0; i < _overlayviews.length; i++) { 
+    _overlayviews.forEach(function(overlay) {
+      
+      overlay.hideClick();
 
-        _overlayviews[i].hideClick();
-
-    }
+    });
 
     this.overlayview.click();
 
@@ -195,7 +194,7 @@ function Maps() {
 
     }
     
-    var data = {
+    var _data = {
       title: _this.title,
       weather: _this.weather,
       wifi: _this.wifi,
@@ -209,7 +208,7 @@ function Maps() {
       coworking: _this.coworking
     };
 
-    _this.infobox.render(_tmpl, data);
+    _this.infobox.render(_tmpl, _data);
 
   }
 

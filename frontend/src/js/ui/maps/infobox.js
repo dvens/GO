@@ -60,6 +60,7 @@ Infobox.prototype.render = function(tmpl_name, data) {
 	}
 
 	this.load();
+	this.element.classList.add('active');
 }
 
 Infobox.prototype.load = function() {
@@ -139,7 +140,18 @@ Infobox.prototype.loadCirclegraphs = function() {
 
 Infobox.prototype.close = function() {
 	
-	this.boxContainer.removeChild(this.element);
+	var _timer;
+	var _this = this;
+	
+	this.element.classList.remove('active');
+	
+	_timer = setTimeout(function(){
+  		
+		_this.boxContainer.removeChild(_this.element);
+		clearTimeout(_timer);	
+
+	}, 400);
+	
 
 }
 
