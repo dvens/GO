@@ -81,8 +81,8 @@ function Maps() {
       var _template = '.overlayviewTemp';
       var content = Peach.render(_template, { data: _dataOverlayView }, 'render');
 
-      var _template = '.overlayviewTempSmall';
-      var content = Peach.render(_template, { data: _dataOverlayView }, 'render');
+      var _templateSmall = '.overlayviewTempSmall';
+      var contentSmall = Peach.render(_templateSmall, { data: _dataOverlayView.title }, 'render');
 
       // Overlayview options
       var _overlayviewoptions = {
@@ -96,10 +96,24 @@ function Maps() {
         map: _map.map
       }
 
+      var _overlayviewoptionsSmall = {
+        lat: parseFloat(marker.lat),
+        lng: parseFloat(marker.lng),
+        content: contentSmall,
+        templateType: _templateSmall,
+        click: openInfobox,
+        hide: closeOverlay,
+        marker: _marker.element,
+        map: _map.map
+      }
+
       var overlayview = new OverlayView(_overlayviewoptions);
+      _marker.setOverlayView(overlayview);
+      
+      var smallOverlayview = new OverlayView(_overlayviewoptionsSmall);
+      _marker.setSmallOverlayView(smallOverlayview);
 
       _overlayviews.push(overlayview);
-      _marker.setOverlayView(overlayview);
 
     });
     
@@ -134,6 +148,7 @@ function Maps() {
   function mouseover () {
 
     this.overlayview.show();
+
     
     if (this.title === _current) {
 

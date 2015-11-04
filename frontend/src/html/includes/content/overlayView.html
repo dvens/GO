@@ -1,5 +1,5 @@
 <template class="overlayviewTemp">
-	<section class="overlayview color__overlay">
+	<section class="overlayview color__overlay" style="background-image: url({{ data.img }})">
 		<div class="arrow__padding">
 			<div class="header">
 				<span class="button--cross"> <img src="../assets/images/icons/cross.svg" alt=""> </span>
@@ -35,7 +35,7 @@
 
 <template class="overlayviewTempSmall">
 	<section class="overlayviewSmall">
-		<h1 class="title"> {{ data.title }} </h1>
+		<h1 class="title"> {{ data }} </h1>
 	</section>	
 </template>
 

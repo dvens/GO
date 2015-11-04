@@ -6,6 +6,7 @@ function GeoMarker(options) {
 	_options = options;
 	_audio = new Audio(_options.audio);
 	_this.overlayview;
+	_this.smallOverlayview;
 	_this.element = new google.maps.Marker(_options);
 
 	var _coWorking = _options.coWorking;
@@ -46,6 +47,12 @@ function GeoMarker(options) {
 GeoMarker.prototype.setOverlayView = function(el) {
 
 	this.element.overlayview = el;
+
+}
+
+GeoMarker.prototype.setSmallOverlayView = function(el) {
+
+	this.element.smallOverlayview = el;
 
 }
 
