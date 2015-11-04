@@ -278,7 +278,7 @@ function Maps() {
     var _lat = this.position.lat();
     var _lng = this.position.lng();
 
-    _map.panTo(_lat, _lng);
+    _map.panToLeft(_lat, _lng);
 
   }
 
@@ -637,7 +637,7 @@ function Maps() {
           e.preventDefault();
 
           _map.zoomIn(10);
-          _map.panTo(_lat, _lng);
+          _map.panToLeft(_lat, _lng);
 
         })
 
