@@ -319,7 +319,9 @@ function Maps() {
       apartment: _this.apartment,
       developers: _this.developers,
       designers: _this.designers,
-      coworking: _this.coworking
+      coworking: _this.coworking,
+      lat: _this.position.lat(),
+      lng: _this.position.lng()
     };
 
     _this.infobox.render(_tmpl, _data);
@@ -327,6 +329,7 @@ function Maps() {
     _storageHandler.updateInfoBoxes();
     _storageBoxes = _storageHandler.getInfoboxes();
     setCompareSlider();
+    zoomToPlace();
 
   }
 
@@ -617,6 +620,35 @@ function Maps() {
     }
     
   }
+
+  // Co
+  function zoomToPlace() {
+
+    _storageBoxes.forEach(function(storagebox) {
+
+      var _buttons = [].slice.call( storagebox.querySelectorAll('.infobox__item-cowork .infobox__list a' ));
+
+      _buttons.forEach(function(button) {
+
+        var _lat = button.getAttribute('data-lat');
+        var _lng = button.getAttribute('data-lng');
+
+        button.addEventListener('click', function(e) {
+
+          e.preventDefault();
+
+          _map.zoomIn(10);
+          _map.panTo(_lat, _lng);
+
+        })
+
+      });
+
+
+    });
+
+  }
+
 
 }
 

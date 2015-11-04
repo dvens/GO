@@ -146,7 +146,7 @@ function GeoMap(id, options) {
 		var _thisMarker = _this.markers;
 		var _zoom = _this.map.getZoom();
 
-		if ( _zoom >= 13 ) {
+		if ( _zoom >= 10 ) {
 
 			for ( i = 0; i < _coMarker.length; i ++ ) {
 

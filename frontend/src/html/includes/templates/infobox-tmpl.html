@@ -142,7 +142,7 @@
 
 		</div>
 
-		<div class="infobox__item">
+		<div class="infobox__item infobox__item-cowork">
 				
 			<div class="infobox__title">
 				<span class="icon icon--yellow -pdt-xs">@@include('./src/assets/images/icons/co-working.svg')</span>
@@ -156,7 +156,7 @@
 					<ul class="infobox__list">
 						{% data.coworking.forEach(function(cowork, key){ %}
 							
-						<li><a data-marker-id="{{ key }}">{{ cowork.name }}</a></li>	
+						<li><a data-marker-id="{{ key }}" data-lat="{{ data.lat }}" data-lng="{{ data.lng }}">{{ cowork.name }}</a></li>	
 
 						{% }); %}
 					</ul>
@@ -339,7 +339,7 @@
 
 		</div>
 
-		<div class="infobox__item">
+		<div class="infobox__item infobox__item-cowork">
 				
 			<div class="infobox__title">
 				<span class="icon icon--yellow -pdt-xs">@@include('./src/assets/images/icons/co-working.svg')</span>
@@ -353,7 +353,7 @@
 					<ul class="infobox__list">
 						{% data.coworking.forEach(function(cowork, key){ %}
 							
-							<li><a data-marker-id="{{ key }}">{{ cowork.name }}</a></li>	
+							<li><a data-marker-id="{{ key }}" data-lat="{{ data.lat }}" data-lng="{{ data.lng }}">{{ cowork.name }}</a></li>	
 
 						{% }); %}
 					</ul>
