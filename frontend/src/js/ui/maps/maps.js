@@ -13,6 +13,7 @@ function GeoMap(id, options) {
 	var _options = extend(options, _defaults);
 
 	_this.markers = [];
+	_this.coMarkers = [];
 	_this.controls = [];
 	_this.map = new google.maps.Map(_element, _options);
 	_this.zoom = _options.zoom;
@@ -57,6 +58,18 @@ function GeoMap(id, options) {
 		marker.setMap(this.map);
 
 		this.markers.push(marker);
+
+		return marker;
+
+	}
+
+	_this.addCoMarker = function(obj) {
+		
+		var marker = obj;
+
+		marker.setMap(this.map);
+
+		this.coMarkers.push(marker);
 
 		return marker;
 
