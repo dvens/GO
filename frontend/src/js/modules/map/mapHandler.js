@@ -121,19 +121,28 @@ function Maps() {
       var content = document.importNode(overlayviewBoxTemp.content.querySelector('.overlayview'), true);
       content.style.background = 'url(' +  marker.img + ')';
 
+      // ContentSmall
+      var overlayviewBoxTempSmall = document.querySelector('.overlayviewTempSmall');
+      var overlayviewBoxSmall = overlayviewBoxTemp.content.querySelector('.overlayviewSmall');
+      overlayviewBoxTempSmall.content.querySelector('.title').innerHTML = marker.city;
+      // clone the contentBlock above
+      var contentSmall = document.importNode(overlayviewBoxTempSmall.content.querySelector('.overlayviewSmall'), true);
+
       // Overlayview options
       var _overlayviewoptions = {
         lat: parseFloat(marker.lat),
         lng: parseFloat(marker.lng),
         content: content,
+        contentSmall: contentSmall,
         click: openInfobox,
+        hide: closeOverlay,
         marker: _marker.element,
         map: _map.map
       }
 
       var overlayview = new OverlayView(_overlayviewoptions);
-      _overlayviews.push(overlayview);
 
+      _overlayviews.push(overlayview);
       _marker.setOverlayView(overlayview);
 
     });
@@ -152,7 +161,7 @@ function Maps() {
 
   function mouseout () {
 
-   // this.overlayview.hide();
+    this.overlayview.hide();
 
     if (this.title === _current) {
 
@@ -168,7 +177,7 @@ function Maps() {
 
   function mouseover () {
 
-    //this.overlayview.show();
+    this.overlayview.show();
     
     if (this.title === _current) {
 
@@ -179,18 +188,16 @@ function Maps() {
       this.setIcon({ url: './assets/images/circle-large.svg' });
 
     }
-    // this.setIcon({ url: './assets/images/circle-large.svg' });
+
   }
 
   function openWindow() {
 
-    _overlayviews.forEach(function(overlay) {
-      
-      overlay.hide();
+    for (i = 0; i < _overlayviews.length; i++) { 
+        _overlayviews[i].hideClick();
+    }
 
-    });
-
-    this.overlayview.show();
+    this.overlayview.click();
 
     var _lat = this.position.lat();
     var _lng = this.position.lng();
@@ -207,9 +214,11 @@ function Maps() {
     if(marker) {
       _this = marker;
       _tmpl = '.infobox-template-current';
-    }
+    } 
 
-    _this.overlayview.hide();  
+    if( this.overlayview ) {
+      this.overlayview.hideClick();
+    }
     
     var data = {
       title: _this.title,
@@ -226,6 +235,12 @@ function Maps() {
     };
 
     _this.infobox.render(_tmpl, data);
+
+  }
+
+  function closeOverlay () {
+
+    this.overlayview.hideClick();
 
   }
 

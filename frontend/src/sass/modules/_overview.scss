@@ -1,7 +1,6 @@
 $fontSize: 12px;
 
 .color__overlay {
-
 	position: relative;
 
 	&:before{
@@ -12,31 +11,26 @@ $fontSize: 12px;
 	  width: 100%;
 	  height: 100%;
 	  z-index: 0;
-	  background-color: rgba(217, 217, 217, 0.7);
+	  background-color: rgba(217, 217, 217, 0.8);
 	}
 
 }
 
 .overlayview {
-	/* + BorderShadow*/
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
 	width: 200px !important;
 	height: 130px !important;
-	border-radius: 4px;
-	font-family: "Avenir";
-	font-weight: 500;
-	-webkit-clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
 	clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
-	shape-outside: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
-	stroke-miterlimit: 10%;
-	stroke: black;
-	stroke-width: 3px;
+	-webkit-clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
+	box-shadow: 4px 2px 4px rgba(0, 0, 0, 50);
+	letter-spacing: 1.52px;
+	font-weight: 600;
 
 	/* For the color overlay */
 	* {
     	position: relative;
-    	font-family: "Avenir";
+    	font-family: $font-family-karla;
 	}	
 
 	.arrow__padding {
@@ -44,77 +38,113 @@ $fontSize: 12px;
 	}
 
 	.header	{
-
 		z-index: 100;
-
 		display: block;
-		padding-bottom: 8px;
+		padding-bottom: 3px;
 
 		.title{
-			padding-top: 21px;
-			padding-left: 26px;
 			display: inline-block;
+			padding-top: 17px;
+			padding-left: 29px;
+			padding-right: 5px;
+			
 			font-size: $fontSize;
+			font-weight: 600;
 		}
 
 		.weather {
-			display: inline-block;
-			float: right;
-			padding-top: 21px;
+			position: absolute;
 			padding-right: 25px;
+			padding-top: 10px;
+			max-height: 50px;
+			/*right: 5px;*/ /* 0 om hem rechts uit te lijnen, maar dan raakt hij in de knoop met het kruis */
+			vertical-align: bottom;
+			
+		}
+		.button--cross {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 500;
+			transition: .3s;
+			opacity: 0.5;
+
+			img {
+				padding: 7px;
+			}
+			&:hover {
+				cursor: pointer;
+				opacity: 1;
+			}
 		}
 
 	}
 
 	.button--info {
+		display: block;
+		width: 130px;
+		height: 20px;
+		margin: 0 auto;
+		margin-top: 3px;
+
+		color: #fff;
+		text-align: center;
+		border-radius: 4px;
+		text-transform: uppercase;
+		font-weight: 100;
+		line-height: 21px;
+		cursor: pointer;
+		
+		transition: all .3s;
 		background: $color-blue;
-		padding: 5px;
+		box-shadow: 0px 2px 4px rgba(0, 0, 0, 50);
+
+		&:hover {
+			box-shadow: 0px 1px 2px rgba(0, 0, 0, 50);
+			background-color: $color-blue-light;
+		}
 	}	
 
 	.info {
-		z-index: 100;
 		display: block;
-		border-top: 2px solid #F2DE13;
-		padding: 8px 6px;
 		width: 132px;
+		padding: 9px 6px;
 		margin: 0 auto;
+		z-index: 100;
+		border-top: 2px solid #F2DE13;
 
 		p {
 			display: block;
-			font-size: $fontSize;
+			font-weight: 600;
+			font-size: 10px;
 
+			&:last-of-type {
+				padding-top: 8px;
+			}
 			span {
 				display: inline-block;
+				font-weight: 600;
 			}
-		}
-
-		.disc {
-
-		}
-
-		.wifi__icon {
-			height: 12px;
-			float: right;
 		}
 		
 		.mbs {
-			/* $fontSize / 2 */
-			font-size: 8px;
+			font-size: 7px;
 			text-align: top;
-			float: right
-		}
-		
-		.wifi {
-			font-size: $fontSize;
 			float: right;
+			letter-spacing: 0.2px;
 		}
-
-
+		.wifi, 
 		.cost {
 			font-size: $fontSize;
 			float: right;
+			padding-left: 5px;
+			padding-right: 0px;
 		}
-		.euro__icon {
+		.cost {
+			padding-left: 2px;
+		}
+		.euro__icon, 
+		.wifi__icon {
 			height: 12px;
 			float: right;
 		}
