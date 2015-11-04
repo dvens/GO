@@ -71,8 +71,8 @@ OverlayView.prototype.draw = function() {
     if( this.overlayOptions.templateType === '.overlayviewTemp' ) {
 
     	ne = overlayProjection.fromLatLngToDivPixel(this.marker.getPosition());
-    	left = (ne.x + 10) + 'px';
-     	top = (ne.y - 30) + 'px';
+    	left = (ne.x + 18) + 'px';
+     	top = (ne.y - 31) + 'px';
 
     }
 

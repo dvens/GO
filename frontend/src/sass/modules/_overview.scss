@@ -1,4 +1,4 @@
-$fontSize: 12px;
+$fontSize: 14px;
 
 .color__overlay {
 	position: relative;
@@ -12,6 +12,7 @@ $fontSize: 12px;
 	  height: 100%;
 	  z-index: 0;
 	  background-color: rgba(217, 217, 217, 0.8);
+	  border-radius: 5px;
 	}
 
 }
@@ -19,13 +20,25 @@ $fontSize: 12px;
 .overlayview {
 	background-size: 100% 100% !important;
 	background-repeat: no-repeat !important;
-	width: 200px !important;
-	height: 130px !important;
-	clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
-	-webkit-clip-path: polygon(10% 100%, 100% 100%, 100% 0%, 10% 0%, 10% 30%, 0% 20%, 10% 10%);
-	box-shadow: 4px 2px 4px rgba(0, 0, 0, 50);
+	width: 220px !important;
+	height: 170px !important;
+
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 50);
 	letter-spacing: 1.52px;
 	font-weight: 600;
+	border-radius: 5px;
+
+	&:after {
+		content: "";
+		position: absolute;
+		left: -18px;
+		top: 18px;
+		width: 0;
+		height: 0;
+		border-top: 9px solid transparent;
+		border-right: 18px solid $color-gray;
+		border-bottom: 9px solid transparent;
+	}
 
 	/* For the color overlay */
 	* {
@@ -33,19 +46,15 @@ $fontSize: 12px;
     	font-family: $font-family-karla;
 	}	
 
-	.arrow__padding {
-		padding-left: 10%;
-	}
-
 	.header	{
 		z-index: 100;
 		display: block;
-		padding-bottom: 3px;
+		padding-bottom: 8px;
 
 		.title{
 			display: inline-block;
-			padding-top: 17px;
-			padding-left: 29px;
+			padding-top: 30px;
+			padding-left: 41px;
 			padding-right: 5px;
 			
 			font-size: $fontSize;
@@ -54,10 +63,9 @@ $fontSize: 12px;
 
 		.weather {
 			position: absolute;
-			padding-right: 25px;
-			padding-top: 10px;
+			top: 23px;
+			right: 38px;
 			max-height: 50px;
-			/*right: 5px;*/ /* 0 om hem rechts uit te lijnen, maar dan raakt hij in de knoop met het kruis */
 			vertical-align: bottom;
 			
 		}
@@ -84,7 +92,7 @@ $fontSize: 12px;
 		width: 130px;
 		height: 20px;
 		margin: 0 auto;
-		margin-top: 3px;
+		margin-top: 9px;
 
 		color: #fff;
 		text-align: center;
@@ -105,7 +113,7 @@ $fontSize: 12px;
 
 	.info {
 		display: block;
-		width: 132px;
+		width: 150px;
 		padding: 9px 6px;
 		margin: 0 auto;
 		z-index: 100;
@@ -133,13 +141,13 @@ $fontSize: 12px;
 		}
 		.wifi, 
 		.cost {
-			font-size: $fontSize;
+			font-size: 12px;
 			float: right;
 			padding-left: 5px;
 			padding-right: 0px;
 		}
 		.cost {
-			padding-left: 2px;
+			padding-left: 3px;
 		}
 		.euro__icon, 
 		.wifi__icon {

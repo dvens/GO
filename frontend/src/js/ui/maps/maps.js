@@ -124,7 +124,9 @@ function GeoMap(id, options) {
 
 	_this.checkZoom = function() {
 		
+		// _this.markers = [];
 		var _coMarker = _this.coMarkers;
+		var _thisMarker = _this.markers;
 		var _zoom = _this.map.getZoom();
 
 		if ( _zoom >= 13 ) {
@@ -132,6 +134,13 @@ function GeoMap(id, options) {
 			for ( i = 0; i < _coMarker.length; i ++ ) {
 
 				_coMarker[i].setVisible(true);
+				_coMarker[i].mouseover();
+
+			}
+
+			for ( i = 0; i < _thisMarker.length; i ++ ) {
+
+				_thisMarker[i].setIcon({ url: './assets/images/circleCurrentLarge.svg' });
 
 			}
 
@@ -140,6 +149,24 @@ function GeoMap(id, options) {
 			for ( i = 0; i < _coMarker.length; i ++ ) {
 
 				_coMarker[i].setVisible(false);
+				_coMarker[i].mouseout();
+
+			}
+
+			for ( i = 0; i < _thisMarker.length; i ++ ) {
+
+				var _current = 'Amsterdam';
+
+				// _thisMarker[i].
+				if (_thisMarker[i].title === _current) {
+
+				  _thisMarker[i].setIcon({ url: './assets/images/circleCurrent.svg' });
+
+				} else {
+
+				  _thisMarker[i].setIcon({ url: './assets/images/circle.svg' });
+
+				}
 
 			}
 
