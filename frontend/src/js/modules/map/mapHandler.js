@@ -288,14 +288,19 @@ function Maps() {
 
   }
 
-  function openInfobox(marker) {
+  function openInfobox(marker, saved) {
     
     var _this = this;
     var _tmpl = '.infobox-template';
 
-    if(marker) {
+    if(marker && !saved) {
       _this = marker;
       _tmpl = '.infobox-template-current';
+    } 
+
+    if(marker && saved) {
+      _this = marker;
+      _tmpl = '.infobox-template';
     } 
 
     if( this.overlayview ) {
@@ -337,6 +342,7 @@ function Maps() {
     _storageBoxes = _storageHandler.getInfoboxes();
     setCompareSlider();
     zoomToPlace();
+    setSavedItems();
 
     if( _storageBoxes.length === 4 ) {
         
@@ -699,13 +705,50 @@ function Maps() {
 
   function setSavedItems() {
 
-      var _savedItems = [].slice.call(document.querySelectorAll('.filter__infbox--item'));
-
+      var _savedItems = [].slice.call(document.querySelectorAll('.saved__infobox--item'));
+    
       _savedItems.forEach(function( savedItem ) {
 
-          console.log(savedItem);
+          var _savedItemName = savedItem.querySelector('.name');
+          var _savedItemClose = savedItem.querySelector('.close');
+          var _savedItemId = _savedItemName.getAttribute('data-id');
+          var _holder = document.querySelector('.saved__infobox');
+          var _number = document.querySelector('.button__number');
+
+          _savedItemClose.addEventListener('click', function() {
+
+            _holder.removeChild(savedItem);
+
+          });
+
+          _savedItemName.addEventListener('click', function() {
+
+            _map.markers.forEach(function(marker) {
+
+              if(marker.id == _savedItemId) {
+                openInfobox(marker, true);
+              }
+
+            });
+
+          });
 
       });
+
+  }
+
+  toggleSaveItems();
+  function toggleSaveItems() {
+
+    var _buttonHolder = document.querySelector('.filter__button-holder .button');
+    var _savedBox = document.querySelector('.filter__button-holder .saved__infobox');
+
+    _buttonHolder.addEventListener('click', function(e) {
+
+        e.preventDefault();
+        _savedBox.classList.toggle('active');
+
+    });
 
   }
 

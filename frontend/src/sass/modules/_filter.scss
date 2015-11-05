@@ -66,11 +66,19 @@
 			z-index: 999;
 			padding: 0 10px;
 			background-color: $color-white;
+			min-height: 60px;
 			box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
 			border-radius: 4px;
 			opacity: 0;
 			transform: translateY(10px);
 			visibility: hidden;
+
+			&.active {
+				transition: all .3s;
+				opacity: 1;
+				transform: translateY(0px);
+				visibility: visible;
+			}
 
 			&:after {
 				content: "";
@@ -100,6 +108,7 @@
 
 				span {
 					float: left;
+					cursor: pointer;
 				}
 
 				.close {
@@ -109,13 +118,6 @@
 				}
 
 			}
-		}
-
-		&:active .saved__infobox {
-			transition: all .3s;
-			opacity: 1;
-			transform: translateY(0px);
-			visibility: visible;
 		}
 
 	}
