@@ -35,7 +35,7 @@ function Maps() {
       hotel: Utils.getMax(this, 'hotel'),
     };
 
-    _markers.forEach(function(marker) {
+    _markers.forEach(function(marker, key) {
 
       function currentCheck() {
         // Change to currentLocation
@@ -56,6 +56,7 @@ function Maps() {
         icon: {
           url: currentCheck()
         },
+        id: key,
         audio: './assets/images/button.mp3',
         title: marker.city,
         weather: marker.weather,
@@ -326,7 +327,8 @@ function Maps() {
       designers: _this.designers,
       coworking: _this.coworking,
       lat: _this.position.lat(),
-      lng: _this.position.lng()
+      lng: _this.position.lng(),
+      id: _this.id
     };
 
     _this.infobox.render(_tmpl, _data);
@@ -692,6 +694,18 @@ function Maps() {
       clearTimeout(_timer); 
 
     }, 25000);
+
+  }
+
+  function setSavedItems() {
+
+      var _savedItems = [].slice.call(document.querySelectorAll('.filter__infbox--item'));
+
+      _savedItems.forEach(function( savedItem ) {
+
+          console.log(savedItem);
+
+      });
 
   }
 

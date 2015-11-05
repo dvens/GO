@@ -9,7 +9,7 @@ function Infobox(opt_in) {
 	_this.boxContainer = document.querySelector('[data-peach-container="main"]');
 	_this.element;
 	_this.button;
-	_this.save;
+	_this.saveButton;
 
 	_this.init();
 
@@ -36,6 +36,18 @@ Infobox.prototype.initEvents = function() {
 
 	}
 
+	if( this.saveButton ) {
+		
+		this.saveButton.addEventListener('click', function(e) {
+
+			e.preventDefault();
+			_this.save();
+
+		});
+
+	}
+
+
 }
 
 Infobox.prototype.createInfobox = function() {
@@ -55,7 +67,7 @@ Infobox.prototype.render = function(tmpl_name, data) {
 	if( this.element.querySelector('.infobox__close') && this.element.querySelector('.infobox__button-holder a') ) {
 
 		this.button = this.element.querySelector('.infobox__close');
-		this.save = this.element.querySelector('.infobox__button-holder a');
+		this.saveButton = this.element.querySelector('.infobox__button-holder a');
 
 	}
 
@@ -156,6 +168,11 @@ Infobox.prototype.close = function() {
 }
 
 Infobox.prototype.save = function() {
+
+	console.log(this);
+
+	//Get box
+	//Get box
 
 }
 
