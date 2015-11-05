@@ -139,9 +139,15 @@ function GeoMap(id, options) {
 
 	}
 
+	_this.panToLeft = function(lat, lng) {
+
+	  	this.map.setCenter(new google.maps.LatLng(lat, lng));
+		this.map.panBy(300, 0);
+		
+	}
+
 	_this.checkZoom = function() {
 		
-		// _this.markers = [];
 		var _coMarker = _this.coMarkers;
 		var _thisMarker = _this.markers;
 		var _zoom = _this.map.getZoom();
