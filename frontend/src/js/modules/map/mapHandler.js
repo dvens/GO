@@ -4,6 +4,7 @@ var GeoMarker = require('./../../ui/maps/marker');
 var OverlayView = require('./../../ui/maps/overlayView');
 var Infobox = require('./../../ui/maps/infobox');
 var StorageHandler = require('./../../ui/localstorage/storageHandler');
+var Filter = require('./../../ui/maps/filter');
 
 // Helpers
 var JSONLoader = require('./../../helpers/jsonLoader');
@@ -20,6 +21,7 @@ function Maps() {
   var _storageHandler = new StorageHandler();
   var _current = 'Amsterdam';
   var _storageBoxes;
+  var _filter;
   var _overlayviews = [];
 
   _loader.load('./src/data/places.json', setMarkers);
@@ -71,7 +73,8 @@ function Maps() {
         click: openWindow,
         mouseover: mouseover,
         mouseout: mouseout,
-        type: 'normal'
+        type: 'normal',
+        filtered: false
       };
 
       // add the marker
@@ -187,6 +190,8 @@ function Maps() {
       }
 
     });
+
+    _filter = new Filter('.filter', _map.markers);
 
   }
 
@@ -330,6 +335,23 @@ function Maps() {
     _storageBoxes = _storageHandler.getInfoboxes();
     setCompareSlider();
     zoomToPlace();
+
+    if( _storageBoxes.length === 4 ) {
+        
+        var _timer;
+        var error = document.querySelector('#error');
+        
+        error.classList.add('active');
+        
+        _timer = setTimeout(function(){
+            
+          error.classList.remove('active');
+          clearTimeout(_timer); 
+
+        }, 5000);
+
+
+    } 
 
   }
 

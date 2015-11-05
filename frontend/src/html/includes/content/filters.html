@@ -9,16 +9,16 @@
 		<div class="filter__item">
 			<h2 class="-h4">wifi</h2>
 			
-			<ul class="filter__item-options">
+			<ul class="filter__item-options filter--wifi">
 				<li> 
-					<input value="20" type="checkbox">
+					<input value="50" type="checkbox" data-checked="false">
 					<label class="icon wifi"> @@include('./src/assets/images/icons/wifi.svg')</label>
-					<div class="filter__infobox">fast > 20 mbps</div>
+					<div class="filter__infobox">fast > 50 mbps</div>
 				</li>
 				<li>
-					<input value="50" type="checkbox">
+					<input value="20" type="checkbox" data-checked="false">
 					<label class="icon wifi wifi--xs">@@include('./src/assets/images/icons/wifi-sm.svg')</label>
-					<div class="filter__infobox">medium > 50 mbps</div>
+					<div class="filter__infobox">medium > 20 mbps</div>
 				</li>
 			</ul>
 			
@@ -29,23 +29,23 @@
 		<div class="filter__item">
 			<h2 class="-h4">cost of living</h2>
 			
-			<ul class="filter__item-options">
+			<ul class="filter__item-options filter--cost">
 				<li>
-					<input value="500" type="checkbox">
+					<input value="1499" type="checkbox">
 					<label class="icon euro euro--xs">@@include('./src/assets/images/icons/euro-xs.svg')</label>
-					<div class="filter__infobox">&euro;500 tot &euro;1500</div>
+					<div class="filter__infobox">  &lt; &euro;1500</div>
 				</li>
 
 				<li>
 					<input value="1500" type="checkbox">
 					<label class="icon euro euro--sm">@@include('./src/assets/images/icons/euro-sm.svg')</label>
-					<div class="filter__infobox">&euro;1500 tot &euro;2000</div>
+					<div class="filter__infobox">&euro;1500 - &euro;2000</div>
 				</li>
 
 				<li>
 					<input value="2000" type="checkbox">
 					<label class="icon euro">@@include('./src/assets/images/icons/euro.svg')</label>
-					<div class="filter__infobox">&euro;2000 tot &euro;2500</div>
+					<div class="filter__infobox">&euro;2000 &gt;</div>
 				</li>
 			</ul>
 
@@ -54,9 +54,9 @@
 		<div class="filter__item">
 			<h2 class="-h4">climate</h2>
 			
-			<ul class="filter__item-options">
+			<ul class="filter__item-options filter--climate">
 				<li>
-					<input value="warm" type="checkbox">
+					<input value="sun" type="checkbox">
 					<label class="icon weather">@@include('./src/assets/images/icons/sun.svg')</span>
 					<div class="filter__infobox">Warm climate</div>
 				</li>
@@ -66,7 +66,7 @@
 					<div class="filter__infobox">Rain climate</div>
 				</li>
 				<li class="icon weather">
-					<input value="cold" type="checkbox">
+					<input value="snow" type="checkbox">
 					<label class="icon weather">@@include('./src/assets/images/icons/ice.svg')</label>
 					<div class="filter__infobox">Cold climate</div>
 				</li>

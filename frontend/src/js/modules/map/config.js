@@ -152,6 +152,9 @@ var config = {
                 },
                 {
                     "visibility": "simplified"
+                },
+                {
+                    "color": "#8994A0"
                 }
             ]
         },

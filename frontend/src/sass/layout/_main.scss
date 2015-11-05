@@ -3,3 +3,26 @@ main {
     width: 100%;
     height: 100%;
 }
+
+#error {
+	background-color: $color-pink;
+	color: $color-white;
+	font-size: $font-size-sm;
+	margin-left: calc(50% - 170px);	
+	top: 150px;
+	text-transform: $font-uppercase;
+	text-align: center;
+	padding: 10px 0px;
+	position: absolute;
+	width: 340px;
+	z-index: 9999;
+
+	visibility: hidden;
+	opacity: 0;
+	transition: all .2s;
+
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+}
