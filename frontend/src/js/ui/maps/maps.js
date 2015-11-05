@@ -141,20 +141,13 @@ function GeoMap(id, options) {
 
 	_this.panToLeft = function(lat, lng) {
 
-		var _lat = lat;
-		var _lng = lng;
-		
-		// this.map.panBy(0, 100);
-
-	  	this.map.setCenter(new google.maps.LatLng(_lat, _lng));
-	  	// map.setCenter(results[0].geometry.location);
+	  	this.map.setCenter(new google.maps.LatLng(lat, lng));
 		this.map.panBy(300, 0);
 		
 	}
 
 	_this.checkZoom = function() {
 		
-		// _this.markers = [];
 		var _coMarker = _this.coMarkers;
 		var _thisMarker = _this.markers;
 		var _zoom = _this.map.getZoom();
