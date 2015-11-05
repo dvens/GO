@@ -670,6 +670,31 @@ function Maps() {
 
   }
 
+  hideSplashPage();
+  function hideSplashPage() {
+
+
+    var _timer;
+    
+    var _wrapper = document.querySelector('.wrapper');
+    var _skip = document.querySelector('.skip');
+
+    _skip.addEventListener('click', function(e) {
+
+      e.preventDefault();
+      _wrapper.classList.add('hidden');  
+
+    });
+    
+    _timer = setTimeout(function(){
+      
+      _wrapper.classList.add('hidden');
+      clearTimeout(_timer); 
+
+    }, 25000);
+
+  }
+
 }
 
 module.exports = Maps;

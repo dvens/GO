@@ -1,0 +1,660 @@
+/* Author: Maaike Tol */
+.wrapper {
+    background-image: url("../assets/images/splashpage/wereldkaart.png");
+    background-color: #263647;
+    margin: 0;
+    padding: 0;
+    font-family: 'Muli', sans-serif;
+    color: #FFD301;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: 50% 33px;
+    background-size: 90%;
+    letter-spacing: 1.5px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    transition: all .3s;
+    
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+}
+
+.align {
+    margin-top: 83px;
+}
+
+.wrapper h1 {
+    font-size: 70px;
+    margin: 0;
+    position: absolute;
+    left: 30px;
+    top: 15px;
+}
+
+.wrapper h2 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    
+}
+
+.wrapper h3 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0 5em;
+    margin-bottom: 1.5em;
+}
+
+#svg-stip {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: -3em;
+    top: 65px;
+    right: 0;
+    
+}
+
+.container {
+    padding-top: 8em;
+}
+
+.float, .click1 {
+    display: inline-block;
+}
+
+.float {
+    width: 29%;
+    vertical-align: top;
+}
+
+.click1 {
+    padding: 0 0.5em;
+    position: relative;
+    top: 20px;
+    width: 4em;
+}
+
+.click1 p {
+    color: white;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.click1, .explore1, .compare1 {
+    height: 125px;
+}
+
+.text-below {
+    margin-top: 1em;
+    color: white;
+    text-transform: none;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+img.sun2 {
+    position: absolute;
+    left: 12px;
+    opacity: 0;
+    -webkit-animation: animateSun 0.1s ease-in-out 8.5s forwards;
+    -moz-animation: animateSun 0.1s ease-in-out 8.5s forwards;
+    -ms-animation: animateSun 0.1s ease-in-out 8.5s forwards;
+    animation: animateSun 0.1s ease-in-out 8.5s forwards;
+}
+
+.pijltje {
+    position: absolute;
+    width: 10px;
+    z-index: 10;
+    opacity: 0;
+    -webkit-animation: animateArrow 1s ease-in-out 7.5s forwards;
+    -moz-animation: animateArrow 1s ease-in-out 7.5s forwards;
+    -ms-animation: animateArrow 1s ease-in-out 7.5s forwards;
+    animation: animateArrow 1s ease-in-out 7.5s forwards;
+}
+
+.pijltje2 {
+    position: absolute;
+    width: 10px;
+    z-index: 10;
+    opacity: 0;
+    -webkit-animation: animateArrowTwo 2.5s linear 11s forwards;
+    -moz-animation: animateArrowTwo 2.5s linear 11s forwards;
+    -ms-animation: animateArrowTwo 2.5s linear 11s forwards;
+    animation: animateArrowTwo 2.5s linear 11s forwards;
+}
+
+.skip {
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1.5px;
+    background-color: #2F4358;
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    box-shadow: 3px 3.5px 3px #1D2A37;
+    position: absolute;
+    right: 4em;
+    bottom: 2em;
+    transition: 0.1s ease-in-out;
+}
+
+.start {
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1.5px;
+    font-size: 18px;
+    background-color: #2F4358;
+    width: 250px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    box-shadow: 3px 3.5px 3px #1D2A37;
+    z-index: 100;
+    margin-top: 4em;
+    transition: 0.1s ease-in-out;
+
+}
+
+.start:hover, .skip:hover {
+    transform: scale(1.05);
+}
+
+.start {
+     -webkit-animation: animateStippen 1s ease-in 19s backwards;
+    -moz-animation: animateStippen 1s ease-in 19s backwards;
+    -ms-animation: animateStippen 1s ease-in 19s backwards;
+    animation: animateStippen 1s ease-in 19s backwards;
+    color: transparent;
+    text-shadow: 0px 0px 0px #fff;
+}
+
+.stip {
+     -webkit-animation: animateStippen 1s ease-in 1s backwards;
+    -moz-animation: animateStippen 1s ease-in 1s backwards;
+    -ms-animation: animateStippen 1s ease-in 1s backwards;
+    animation: animateStippen 1s ease-in 1s backwards;
+    color: transparent;
+}
+
+.stip:nth-child(2n) {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+.stip:nth-child(3n) {
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
+.stip:nth-child(4n) {
+    -webkit-animation-delay: 1s;
+    -moz-animation-delay: 1s;
+    -ms-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+#wifi1 {
+    opacity: 0;
+    -webkit-animation: animateWifi 1s ease-in 15.7s forwards;
+    -moz-animation: animateWifi 1s ease-in 15.7s forwards;
+    -ms-animation: animateWifi 1s ease-in 15.7s forwards;
+    animation: animateWifi 1s ease-in 15.7s forwards;
+}
+
+.wifi2 {
+      opacity: 0;
+    -webkit-animation: animateWifi 0.5s ease-in 16.7s forwards;
+    -moz-animation: animateWifi 0.5s ease-in 16.7s forwards;
+    -ms-animation: animateWifi 0.5s ease-in 16.7s forwards;
+    animation: animateWifi 0.5s ease-in 16.7s forwards;
+}
+
+.wifi2:nth-child(1) {
+    -webkit-animation-delay: 16.7s;
+    -moz-animation-delay: 16.7s;
+    -ms-animation-delay: 16.7s;
+    animation-delay: 16.7s;
+}
+
+
+.wifi2:nth-child(3) {
+    -webkit-animation-delay: 17s;
+    -moz-animation-delay: 17s;
+    -ms-animation-delay: 17s;
+    animation-delay: 17s;
+}
+
+.wifi2:nth-child(2) {
+    -webkit-animation-delay: 17.3s;
+    -moz-animation-delay: 17.3s;
+    -ms-animation-delay: 17.3s;
+    animation-delay: 17.3s;
+}
+
+.wifi2:nth-child(4) {
+    -webkit-animation-delay: 17.6s;
+    -moz-animation-delay: 17.6s;
+    -ms-animation-delay: 17.6s;
+    animation-delay: 17.6s;
+}
+
+
+.container h2 {
+    color: transparent;
+    -webkit-animation: animateTekstOne 3s ease-in;
+    -moz-animation: animateTekstOne 3s ease-in;
+    -ms-animation: animateTekstOne 3s ease-in;
+    animation: animateTekstOne 3s ease-in;
+}
+
+h2.tekst-1 {
+    -webkit-animation-delay: 0s;
+    -moz-animation-delay: 0s;
+    -ms-animation-delay: 0s;
+    animation-delay: 0s;
+}
+
+h2.tekst-2 {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    animation: none;
+    color: transparent;
+}
+
+h3.tekst-3 {
+    -webkit-animation: none;
+    -moz-animation: none;
+    -ms-animation: none;
+    animation: none;
+    color: transparent;
+}
+
+h2.tekst-2 span {
+
+    -webkit-animation: animateTekstTwo 3s ease-in 4s backwards;
+    -moz-animation: animateTekstTwo 3s ease-in 4s backwards;
+    -ms-animation: animateTekstTwo 3s ease-in 4s backwards;
+    animation: animateTekstTwo 3s ease-in 4s backwards;
+    color: transparent;
+    text-shadow: 0px 0px 0px #FFD301;
+}
+
+h3.click{
+    -webkit-animation: animateTekstThree 4s ease-in 5s backwards;
+    -moz-animation: animateTekstThree 4s ease-in 5s backwards;
+    -ms-animation: animateTekstThree 4s ease-in 5s backwards;
+    animation: animateTekstThree 4s ease-in 5s backwards;
+    color: transparent;
+    text-shadow: 0px 0px 0px #FFD301;
+}
+
+h3.explore{
+    -webkit-animation: animateTekstThree 4s ease-in 9s backwards;
+    -moz-animation: animateTekstThree 4s ease-in 9s backwards;
+    -ms-animation: animateTekstThree 4s ease-in 9s backwards;
+    animation: animateTekstThree 4s ease-in 9s backwards;
+    color: transparent;
+    text-shadow: 0px 0px 0px #FFD301;
+}
+
+h3.compare{
+    -webkit-animation: animateTekstThree 4s ease-in 13.5s backwards;
+    -moz-animation: animateTekstThree 4s ease-in 13.5s backwards;
+    -ms-animation: animateTekstThree 4s ease-in 13.5s backwards;
+    animation: animateTekstThree 4s ease-in 13.5s backwards;
+    color: transparent;
+    text-shadow: 0px 0px 0px #FFD301;
+}
+
+div.click1{
+    -webkit-animation: animateIcons 1.5s ease-in 2s backwards;
+    -moz-animation: animateIcons 1.5s ease-in 2s backwards;
+    -ms-animation: animateIcons 1.5s ease-in 2s backwards;
+    animation: animateIcons 1.5s ease-in 2s backwards;
+    color: transparent;
+    text-shadow: 0px 0px 0px #FFD301;
+}
+
+div.click1:nth-child(3) {
+      -webkit-animation-delay: 6.5s;
+    -moz-animation-delay: 6.5s;
+    -ms-animation-delay: 6.5s;
+    animation-delay:6.5s;
+}
+
+div.click1:nth-child(2) {
+      -webkit-animation-delay: 6s;
+    -moz-animation-delay: 6s;
+    -ms-animation-delay: 6s;
+    animation-delay:6s;
+}
+
+div.click1:nth-child(4) {
+      -webkit-animation-delay: 7s;
+    -moz-animation-delay: 7s;
+    -ms-animation-delay: 7s;
+    animation-delay:7s;
+}
+
+#Oval-4 {
+    opacity: 0;
+     -webkit-animation: animateColour 1.5s ease-in 10.5s forwards;
+    -moz-animation: animateColour 1.5s ease-in 10.5s forwards;
+    -ms-animation: animateColour 1.5s ease-in 10.5s forwards;
+    animation: animateColour 1.5s ease-in 10.5s forwards;
+}
+
+.box1 {
+     -webkit-animation: animatePopup 0.5s ease-in-out 12s backwards;
+    -moz-animation: animatePopup 0.5s ease-in-out 12s backwards;
+    -ms-animation: animatePopup 0.5s ease-in-out 12s backwards;
+    animation: animatePopup 0.5s ease-in-out 12s backwards;
+}
+
+.content-box {
+    -webkit-animation: animateContentbox 1s ease-in 12.5s backwards;
+    -moz-animation: animateContentbox 1s ease-in 12.5s backwards;
+    -ms-animation: animateContentbox 1s ease-in 12.5s backwards;
+    animation: animateContentbox 1s ease-in 12.5s backwards;
+}
+
+.explore-1-box {
+      -webkit-animation: animateContentbox 1.5s ease-in 15s backwards;
+    -moz-animation: animateContentbox 1.5s ease-in 15s backwards;
+    -ms-animation: animateContentbox 1.5s ease-in 15s backwards;
+    animation: animateContentbox 1.5s ease-in 15s backwards;
+}
+
+.explore-2-box {
+      -webkit-animation: animateContentbox 1.5s ease-in 16s backwards;
+    -moz-animation: animateContentbox 1.5s ease-in 16s backwards;
+    -ms-animation: animateContentbox 1.5s ease-in 16s backwards;
+    animation: animateContentbox 1.5s ease-in 16s backwards;
+}
+
+.explore-1{
+      -webkit-animation: animateContentbox 1s ease-in 15.5s backwards;
+    -moz-animation: animateContentbox 1s ease-in 15.5s backwards;
+    -ms-animation: animateContentbox 1s ease-in 15.5s backwards;
+    animation: animateContentbox 1s ease-in 15.5s backwards;
+}
+
+.explore-2{
+      -webkit-animation: animateContentbox 1s ease-in 16.5s backwards;
+    -moz-animation: animateContentbox 1s ease-in 16.5s backwards;
+    -ms-animation: animateContentbox 1s ease-in 16.5s backwards;
+    animation: animateContentbox 1s ease-in 16.5s backwards;
+}
+
+
+/*                                  ANIMATIES: ;                                                            */
+
+
+
+@keyframes animateTekstOne {
+    0%{
+        opacity: 0;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+    20%,90%{
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+    100%{
+        opacity: 0;
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+}
+
+@keyframes animateTekstTwo{
+    0%{
+        opacity: 0;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+    30%, 90%{
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+}
+
+
+@keyframes animateTekstThree{
+    0%{
+        opacity: 0;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+    30%, 90%{
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0px 0px 0px #FFD301;
+    }
+}
+
+@keyframes animateIcons{
+    0%{
+        opacity: 0;
+        
+    }
+    30%, 90%{
+        opacity: 1;
+ 
+    }
+    100%{
+        opacity: 1;
+      
+    }
+}
+
+@keyframes animateContentbox{
+    0%{
+        opacity: 0;
+        
+    }
+    30%, 90%{
+        opacity: 1;
+   
+    }
+    100%{
+        opacity: 1;
+    
+    }
+}
+
+@keyframes animatePopup{
+    0%{
+        transform: scale(0); transform-origin: 0% 100%;
+        
+    }
+    100%{
+        transform: scale(1);
+        
+    }
+}
+
+@keyframes animateArrow{
+    0%{
+       left: 25.5em;
+        top: 23em;
+        opacity: 1;
+    }
+    80%{   
+        left: 22.5em;
+        top: 21em;
+        opacity: 1;
+        transform:scale(1);
+    }
+    90%{
+        left: 22.5em;
+        top: 21em;
+        opacity: 1;
+        transform:scale(0.7);
+    }
+    100%{
+         left: 22.5em;
+        top: 21em;
+        opacity: 1;
+        transform:scale(1);
+    }
+}
+
+@keyframes animateSun{
+    0%{
+       opacity: 0;
+    }
+    100%{   
+        opacity: 1;
+    }
+}
+
+@keyframes animateArrowTwo{
+     0%{
+        left: 35em;
+        top: 25em;
+        opacity: 1;
+     }
+     35%{
+        left: 38em;
+        top: 24.5em;
+        opacity: 1;
+        transform:scale(1);
+    }
+    40%{
+        left: 38em;
+        top: 24.5em;
+        opacity: 1;
+        transform:scale(0.7); 
+    }
+    45% {
+        left: 38em;
+        top: 24.5em;
+        opacity: 1;
+        transform:scale(1);
+    }
+    90%{
+        left: 41em;
+        top: 22.5em;
+        opacity: 1;
+        transform:scale(1);
+    }
+    95%{
+        left: 41em;
+        top: 22.5em;
+        opacity: 1;
+        transform:scale(0.7);
+    }
+    100%{
+        left: 41em;
+        top: 22.5em;
+        opacity: 1;
+        transform:scale(1);
+    }
+}
+
+@keyframes animateStippen{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1; 
+    }
+}
+
+@keyframes animateWifi{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+
+    }
+}
+
+@keyframes animateColour{
+    0%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 1; 
+    }
+    95%{
+        opacity: 1;
+        fill:white;
+    }
+    100%{
+        opacity: 1;
+        fill: #FFD301;
+    }
+}
+
+
+/*                                                             RESPONSIVE                                               */
+
+@media (min-width: 400px) and (max-width: 650px) {
+
+        .align {
+            padding-top: 7em;
+        }
+
+        .float {
+            width: 80%;
+            margin-bottom: 2em;
+
+        }
+
+        .wrapper h3 {
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+}
+
+
+@media (min-width: 1400px) {
+      
+      #svg-stip {
+            left: -3em;
+            width: 56em;
+            top: 6em;
+      }
+      .pijltje {
+            margin-left: 2em;
+        }
+
+      .pijltje2 {
+            margin-left: 4.5em;
+        }
+
+}
